@@ -45,7 +45,7 @@ do
 }
 while (flag);
 
-
+Console.WriteLine("\n\n2Darray:");
 int[,] array2d = new int[4, 5];
 
 for (int k = 0; k < array2d.GetLength(0); k++)
@@ -57,7 +57,7 @@ int cols = array2d.Length / rows;
 for (int i1 = 0; i1 < rows; i1++)
 {
     for (int j1 = 0; j1 < cols; j1++)
-        Console.WriteLine(array2d[i1, j1] + "\t");
+        Console.Write(array2d[i1, j1] + "\t");
     Console.WriteLine();
 }
  
