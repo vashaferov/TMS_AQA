@@ -71,3 +71,4 @@ Console.WriteLine("|GetUpperBound(1): " + array2d.GetUpperBound(1) + "|");
 Console.WriteLine("|GetLowerBound(0): " + array2d.GetLowerBound(0) + "|");
 Console.WriteLine("|GetLowerBound(1): " + array2d.GetLowerBound(1) + "|");
 Console.WriteLine("---------------------");
+Console.WriteLine("---------------------");
