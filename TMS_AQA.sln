@@ -5,6 +5,8 @@ VisualStudioVersion = 17.7.34221.43
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TypesAndOperators", "TMS_AQA\TypesAndOperators.csproj", "{BD63BE60-F84B-4C31-A35A-86014B42BFBA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringApp", "StrungsApp\StringApp.csproj", "{5C228BEA-C283-49B0-BC7F-0119ABEEBA17}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{BD63BE60-F84B-4C31-A35A-86014B42BFBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BD63BE60-F84B-4C31-A35A-86014B42BFBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BD63BE60-F84B-4C31-A35A-86014B42BFBA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C228BEA-C283-49B0-BC7F-0119ABEEBA17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C228BEA-C283-49B0-BC7F-0119ABEEBA17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C228BEA-C283-49B0-BC7F-0119ABEEBA17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C228BEA-C283-49B0-BC7F-0119ABEEBA17}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
