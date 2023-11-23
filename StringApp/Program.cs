@@ -69,6 +69,31 @@
 
             Console.WriteLine(str_final);
 
+            // Сравнение посимвольно 
+
+            string s10 = "hello";
+            string[] compare_value = { "hello", "world", "about"};
+            
+            foreach (string item in compare_value)
+                Console.WriteLine(s10.CompareTo(item));
+
+            // IndexOf, IndexOfAny
+            string f_str ="Hello World";
+
+            Console.WriteLine($"IndexOf 'j': {f_str.IndexOf('j')}"); // символа нет
+            Console.WriteLine($"IndexOf 'e': {f_str.IndexOf('e')}");
+            Console.WriteLine($"IndexOf 'h': {f_str.IndexOf('h', StringComparison.OrdinalIgnoreCase)}"); // без учета регистра
+            Console.WriteLine($"IndexOf 'l': {f_str.IndexOf('l', 3)}");
+
+            char[] chars1 = { 'a', 'o', 'c', };
+
+            Console.WriteLine($"IndexOfAny: {f_str.IndexOfAny(chars1)}");
+
+            char findElement = 'o';
+
+            for (int i = 0; i < f_str.Length; i++)
+                if (i == f_str.IndexOf(findElement, i))
+                    Console.Write(i + " ");
         }
     }
 }
