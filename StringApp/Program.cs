@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using System.Collections.Immutable;
+using System.Text.RegularExpressions;
 
 namespace StringApp
 {
@@ -95,13 +96,14 @@ namespace StringApp
                             streamReader.Close();
 
                             text = text.Replace("test", "testing");
-                            
+
                             for (int i = 0; i < text.Length; i++)
                                 for (int j = 0; j < num.Length; j++)
                                     if (text[i] == num[j])
                                         text = text.Replace(text[i].ToString(), String.Empty);
 
                             Console.WriteLine("\nИзмененный текст:\n" + text);
+
                             break;
                         }
 
@@ -109,13 +111,18 @@ namespace StringApp
                         {
                             Console.WriteLine("Задание 2\n");
 
-                            string s1 = "Welcome";
-                            string s2 = "to";
-                            string s3 = "the";
-                            string s4 = "TMS";
-                            string s5 = "lesons";
+                            string[] sArray = {"Welcome",
+                                               "to",
+                                               "the",
+                                               "TMS",
+                                               "lesons"
+                            };
+                            string newString = System.String.Empty;
 
-                            Console.WriteLine(string.Concat("\"",s1, "\" \"", s2, "\" \"", s3, "\" \"", s4, "\" \"", s5, "\""));
+                            foreach (string s in sArray)
+                                newString += string.Concat(@$"""{s}"" ");
+
+                            Console.WriteLine("Измененный текст:\n" + newString);
 
                             break;
                         }
@@ -154,19 +161,29 @@ namespace StringApp
                             Console.WriteLine("Исходный текст:\n" + text);
 
                             text = text.ToLower(); // т.к. в исходном тексте с заглавной буквы, а "нужно удалить" с маленькой
-                            index = text.IndexOf(findText);                          
+                            index = text.IndexOf(findText);
                             text = text.Substring(index + findText.Length);
                             text = text.Insert(index, newText);
-                            text = text.Insert(text[text.Length - 1], "!!!!!!!!!");
+                            text = text.Insert(text.Length - 1, "!!!!!!!!!");
 
+                            index = text.LastIndexOf('!');
+                            text = text.Remove(index, 1).Insert(index, "?");
 
                             Console.WriteLine("Измененный текст:\n" + text);
+
                             break;
                         }
 
                     case "5":
                         {
                             Console.WriteLine("Задание 5\n");
+
+                            streamReader = new StreamReader(@"originalFiles\Task_5.txt");
+                            text = streamReader.ReadToEnd();
+                            Console.WriteLine("Исходный текст:\n" + text);
+                            streamReader.Close();
+
+                            Console.WriteLine("Два первых блока по 4 цифры: " + blockNums(text));
 
                             break;
                         }
@@ -175,17 +192,78 @@ namespace StringApp
                         {
                             Console.WriteLine("Задание 6\n");
 
+                            string newText = null;
+                            streamReader = new StreamReader(@"originalFiles\Task_6.txt");
+                            text = streamReader.ReadToEnd();
+                            Console.WriteLine("Исходный текст:\n" + text);
+                            streamReader.Close();
+
+                            foreach (char c in text)
+                                if (c == '\t')
+                                    newText += " ";
+                                else
+                                    newText += c.ToString();
+
+                            newText = Regex.Replace(newText, " {2}", " "); // раз regex из пространства text, то не противоречит условию задачи 
+
+                            Console.WriteLine("Измененный текст:\n" + newText);
+
                             break;
                         }
 
                     case "7":
                         {
                             Console.WriteLine("Задание 7\n");
+                            string[] spliters = { " ", "\t" };
+
+                            streamReader = new StreamReader(@"originalFiles\Task_7.txt");
+                            text = streamReader.ReadToEnd();
+                            Console.WriteLine("Исходный текст:\n" + text);
+                            streamReader.Close();
+
+                            string[] words = text.Split(spliters, StringSplitOptions.RemoveEmptyEntries);
+
+                            Array.Sort(words);
+
+                            Console.WriteLine("Измененный текст:");
+                            foreach (string s in words)
+                                Console.Write(s + " ");
+
+                            Console.WriteLine();
+
+                            break;
+                        }
+                    default:
+                        {
+                            Console.WriteLine("Не найден номер задачи. Повторите ввод номера (от 1 до 7)");
 
                             break;
                         }
                 }
             }
+        }
+
+        static string blockNums(string s)
+        {
+            string pattern = @"\d{4}";
+            string results = System.String.Empty;
+
+            MatchCollection matches = Regex.Matches(s, pattern);
+
+            foreach (Match match in matches)
+            {
+                results += match.Value + " ";
+            }
+
+            return results; 
+        }
+
+        static string numberWithoutLettersBlock(string s)
+        {
+            string pattern = @"[a-z]{3}";
+            string results = System.String.Empty;
+
+            return results;
         }
     }
 }
