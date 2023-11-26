@@ -49,6 +49,7 @@
                           </element>
                           """;
             Console.WriteLine(text);
+            Console.WriteLine(text);
 
             string text_inter = $"""                   
                           <element attr="content">
