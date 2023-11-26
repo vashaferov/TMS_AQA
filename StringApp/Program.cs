@@ -183,8 +183,19 @@ namespace StringApp
                             Console.WriteLine("Исходный текст:\n" + text);
                             streamReader.Close();
 
-                            Console.WriteLine("Два первых блока по 4 цифры: " + blockNums(text));
-
+                            if (FiveTask.CheckCorrectFormatString(text))
+                            {
+                                Console.WriteLine("Два первых блока по 4 цифры: " + FiveTask.BlockNums(text));
+                                Console.WriteLine("Номер документа без блоков букв: " + FiveTask.NumberWithoutLettersBlock(text));
+                                Console.WriteLine("Номер документа без цифр (в нижнем регистре): " + FiveTask.OnlyLettersToLower(text));
+                                Console.WriteLine("Номер документа без цифр (в верхнем  регистре):\nLetters:" + FiveTask.OnlyLettersToUpper(text));
+                                Console.WriteLine("Поиск последовательности \"abc\": " + FiveTask.FindInTextABC(text, "abc"));
+                                Console.WriteLine("Поиск последовательности \"555\": " + FiveTask.FindTextStart(text, "555"));
+                                Console.WriteLine("Поиск последовательности \"1a2b\": " + FiveTask.FindTextEnd(text, "1a2b"));
+                            }                               
+                            else
+                                Console.WriteLine("Ошибка. Номер документа не имеет нужный формат");
+                           
                             break;
                         }
 
@@ -243,27 +254,6 @@ namespace StringApp
             }
         }
 
-        static string blockNums(string s)
-        {
-            string pattern = @"\d{4}";
-            string results = System.String.Empty;
-
-            MatchCollection matches = Regex.Matches(s, pattern);
-
-            foreach (Match match in matches)
-            {
-                results += match.Value + " ";
-            }
-
-            return results; 
-        }
-
-        static string numberWithoutLettersBlock(string s)
-        {
-            string pattern = @"[a-z]{3}";
-            string results = System.String.Empty;
-
-            return results;
-        }
+        
     }
 }
