@@ -16,10 +16,7 @@ namespace StringApp
         {
             string pattern = @"^\d{4}-[a-zA-Z]{3}-\d{4}-[a-zA-Z]{3}-\d[a-zA-Z]\d[a-zA-Z]$";
 
-            if (Regex.IsMatch(s, pattern)) 
-                return true;
-            else 
-                return false;
+            return Regex.IsMatch(s, pattern);
         }
 
         static public string BlockNums(string s)
