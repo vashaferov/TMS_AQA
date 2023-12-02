@@ -2,6 +2,8 @@
 
 using Classes.Task1;
 using Classes.Task2;
+using Classes.Task3;
+using Classes.Task4;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Classes
@@ -13,7 +15,8 @@ namespace Classes
             //=================================\\
             //============= Методы ==============\\
             //=====================================\\
-            /* int[] array = { 1, 8, 14, -4, 0, 7 };
+            /* int[] array = { 1, 8, 14, -4, 0, 7 };1
+             
 
              DisplayGreeting("Hello");
              DisplayGreeting("Hello", "Slava");
@@ -196,12 +199,73 @@ namespace Classes
                         {
                             Console.WriteLine("ЗАДАНИЕ 3\n");
 
+                            bool session = true;
+                            
+                            ATM atm = new ATM(4, 10, 3);
+                            atm.Print();
+                            
+                            while (session)
+                            {
+                                Console.Write("1. Пополнение банкомата;\n2. Снятие денег;\nВыполнить действие (чтобы завершить работу введите \"q\"): ");
+                                
+                                switch (Console.ReadLine())
+                                {
+                                    case "1":
+                                    {
+                                        Console.Write("Введите номинал купюры (20, 50 или 100): ");
+                                        int banknote = Convert.ToInt32(Console.ReadLine());
+                                        Console.Write("Введите кол-во купюры: ");
+                                        int amount = Convert.ToInt32(Console.ReadLine());
+                                        Console.WriteLine();
+                                        
+                                        atm.ReplenishmentATM(banknote, amount);
+                                        atm.Print();
+                                        break;
+                                    }
+                                    case "2":
+                                    {
+                                        Console.Write("Введите сумму для снятия: ");
+                                        int amount = Convert.ToInt32(Console.ReadLine());
+                                        Console.WriteLine();
+                                        
+                                        if(atm.TakeMoney(amount))
+                                            Console.WriteLine("Операция выполнена успешно!");
+                                        else
+                                            Console.WriteLine("Операция не выполнена!");
+                                        atm.Print();
+                                        
+                                        break;
+                                    }
+                                    case "q":
+                                    {
+                                        session = false;
+
+                                        break;
+                                    }
+                                }
+                            }
+                            
                             break;
                         }
                     case "4":
                         {
                             Console.WriteLine("ЗАДАНИЕ 4\n");
+                            
+                            string[] nameForPatient = {"Иван", "Петр", "Семен", "Лена", "Катя", "Ирина"};
+                            Random rand = new Random();
 
+                            TreatmentPlan treatmentPlan = new TreatmentPlan(rand.Next(1, 5));
+                            Patient patient = new Patient(nameForPatient[rand.Next(nameForPatient.Length)],
+                                rand.Next(18, 99), treatmentPlan.treatmentPlanCode);
+                            Doctors doctors = new Doctors();
+                            
+                            Console.WriteLine($"Карточка пциент:\nИмя: {patient.name}, Возраст: {patient.age}, Код плана лечения: {patient.treatmentPlan}");
+                            
+                            patient.GoToHospital(patient.treatmentPlan);
+                            Console.WriteLine($"Согласно коду плана лечения: {patient.treatmentPlan}, пациенту назначен врач: {patient.doctor}");
+
+                            patient.treatmentPlan = doctors.Heal(patient.doctor);
+                            
                             break;
                         }
                     default:
@@ -214,7 +278,7 @@ namespace Classes
             }
         }
 
-        // Методы для первой задачи
+        // Метод для первой задачи
         static void ShowInfoForFirstTask (Phone phone)
         {
             string[] nameForReceiveCall = {"Иван", "Петр", "Семен", "Лена", "Катя", "Ирина"};
@@ -229,7 +293,7 @@ namespace Classes
             phone.sendMessage(numberForSendMessage5);
         }
 
-        // Методы для второй задачи
+        // Метод для второй задачи
         static void OperationCreditCard(CreditCard creditCard)
         {
             float amount;
