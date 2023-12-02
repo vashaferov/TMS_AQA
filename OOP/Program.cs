@@ -4,6 +4,7 @@
     {
         static void Main(string[] args)
         {
+            //-------- Наследование 
             Client client1 = new Client(1);
             client1.Id = 1;
             client1.PhoneNumber = "79126784609";
@@ -20,6 +21,12 @@
             individual1.Id = 10;
             individual1.PhoneNumber = "79373892819";
             individual1.Email = "test1@test.com";
+
+            //-------- Свойства
+            Person person = new Person("yyy - 715");
+            person.Name = "Test";
+            person.Age = "25";
+
         }
     }
 }
