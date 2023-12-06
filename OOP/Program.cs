@@ -22,7 +22,7 @@ namespace OOP
             Individuals individual1 = new Individuals(1);
             individual1.Firstname = "Aaa";
             individual1.Lastname = "Bbb";
-            individual1.Id = 10;
+            individual1.Id = 10;         
             individual1.PhoneNumber = "79373892819";
             individual1.Email = "test1@test.com";
 
@@ -46,11 +46,20 @@ namespace OOP
                         {
                             Console.WriteLine("ЗАДАНИЕ 1\n");
 
-                            IsoscelesTriangle isoscelesTriangle = new IsoscelesTriangle(5, 3);
-                            EquilateralTriangle equilateralTriangle = new EquilateralTriangle(5);
+                            FigureType[] figureType = new FigureType[6];
+                            figureType[0] = new Triangle(5, 5, 8).CheckTriangle();
+                            figureType[1] = new Triangle(6, 6, 6).CheckTriangle();
+                            figureType[2] = new Triangle(3, 4, 5).CheckTriangle();
+                            figureType[3] = new Triangle(4, 5, 6).CheckTriangle();
+                            figureType[4] = new SquareAndRectangle(8, 5);
+                            figureType[5] = new SquareAndRectangle(7, 7);
 
-                            Console.WriteLine(isoscelesTriangle.AreaOfTriangle());
-                            Console.WriteLine(equilateralTriangle.AreaOfTriangle());
+                            foreach (var figure in figureType)
+                            {
+                                figure.Area();
+                                Console.WriteLine();
+                            }
+
                             break;
                         }
                     case "2":
