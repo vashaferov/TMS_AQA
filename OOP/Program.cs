@@ -1,4 +1,6 @@
 ﻿using OOP.Task1;
+using OOP.Task2;
+using OOP.Task2.Doctors;
 using System.Numerics;
 using System.Threading.Tasks;
 
@@ -65,6 +67,32 @@ namespace OOP
                     case "2":
                         {
                             Console.WriteLine("ЗАДАНИЕ 2\n");
+
+                            string[] nameForPatient = { "Иван", "Петр", "Семен", "Лена", "Катя", "Ирина" };
+                            Random rand = new Random();
+
+                            TreatmentPlan treatmentPlan = new TreatmentPlan(rand.Next(1, 5));
+                            Patient patient = new Patient(nameForPatient[rand.Next(nameForPatient.Length)], rand.Next(18, 99), treatmentPlan.treatmentPlanCode);
+
+                            Doctor[] doctor = new Doctor[3];
+                            doctor[0] = new Dentist();
+                            doctor[1] = new Surgeon();
+                            doctor[2] = new Therapist();
+
+                            Console.WriteLine($"Карточка пациент:\nИмя: {patient.name}, Возраст: {patient.age}, Код плана лечения: {patient.treatmentPlan}");
+                                                       
+                            if (patient.treatmentPlan == 1)
+                            {
+                                doctor[1].Heal();
+                            }
+                            else if (patient.treatmentPlan == 2)
+                            {
+                                doctor[0].Heal();
+                            }
+                            else
+                            {
+                                doctor[2].Heal();
+                            }
 
                             break;
                         }
