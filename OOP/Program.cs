@@ -100,6 +100,8 @@ namespace OOP
                         {
                             Console.WriteLine("ЗАДАНИЕ 3\n");                        
 
+
+
                             break;
                         }
                     case "4":
