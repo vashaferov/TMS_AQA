@@ -26,6 +26,7 @@
             Person person = new Person("yyy - 715");
             person.Name = "Test";
             person.Age = "25";
+            person.Age = "25";
 
         }
     }
