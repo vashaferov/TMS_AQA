@@ -8,7 +8,7 @@ namespace OOP.Task4.AutoType
 {
     internal class Motorbike : Auto
     {
-        public bool availabilityStroller;
+        private bool availabilityStroller;
 
         public Motorbike(string mark, string number, int speed, int payload, bool availabilityStroller) : base(mark, number, speed, payload)
         {

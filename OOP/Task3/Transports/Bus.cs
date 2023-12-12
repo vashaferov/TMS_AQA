@@ -7,9 +7,7 @@ using System.Threading.Tasks;
 namespace OOP.Task3.Transports
 {
     internal class Bus : Transport
-    {
-        
-
+    {        
         public override void GetTransportType()
         {
             Console.WriteLine("Тип транспорта: Автобус");
