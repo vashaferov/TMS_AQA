@@ -1,6 +1,7 @@
 ﻿
 using Abstraction.Task1;
 using Abstraction.Task2;
+using Microsoft.Win32;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 
@@ -48,8 +49,8 @@ internal class Program
             switch (task)
             {
                 case "1":
-                {
-                    Console.WriteLine("ЗАДАНИЕ 1\n");
+                    {
+                        Console.WriteLine("ЗАДАНИЕ 1\n");
 
                         double pAll = 0;
                         double sAll = 0;
@@ -60,7 +61,7 @@ internal class Program
                         figures[3] = new Triangle(3, 5, 7);
                         figures[4] = new Circle(4);
 
-                        foreach(Figure f in figures)
+                        foreach (Figure f in figures)
                         {
                             f.Print();
                             Console.WriteLine($"Периметр: {f.getPerimeter()}, Площадь: {f.getArea()}\n");
@@ -70,11 +71,11 @@ internal class Program
 
                         Console.WriteLine("Сумма площади всех фигур: {0:f4}\nСумма периметров всех фигур: {1:f4}", pAll, sAll);
 
-                    break;
-                }
+                        break;
+                    }
                 case "2":
-                {
-                    Console.WriteLine("ЗАДАНИЕ 2\n");
+                    {
+                        Console.WriteLine("ЗАДАНИЕ 2\n");
 
                         Product[] products = new Product[7];
                         products[0] = new Product("Мука \"Макфа\"", 20, new DateTime(2023, 12, 1), new DateTime(2025, 12, 1));
@@ -94,7 +95,7 @@ internal class Program
                                 Console.WriteLine("Срок годности продукта не соблюден!");
                             Console.WriteLine();
                         }
-                        
+
                         // добавление продуктов в партии (партия = общее название, срок производства и срок годности), цена = сумма цен продуктов партии
                         Batch[] batch = new Batch[products.Length];
                         int batchCount = 0;
@@ -143,19 +144,21 @@ internal class Program
                         {
                             bool tempFlag = false;
 
-                            for(int i = 0; i < fruitsAndVegetables.Length; i++)
+                            for (int i = 0; i < fruitsAndVegetables.Length; i++) // Знаю что костыль, но других идей нет
                             {
                                 if (p.name.Contains(fruitsAndVegetables[i]))
                                 {
                                     fruitsAndVegetablesList.Add(p);
                                     tempFlag = true;
                                     break;
-                                } else if(p.name.Contains(milkProduct[i]))
+                                }
+                                else if (p.name.Contains(milkProduct[i]))
                                 {
                                     milkProductList.Add(p);
                                     tempFlag = true;
                                     break;
-                                } else if (p.name.Contains(breadProduct[i]))
+                                }
+                                else if (p.name.Contains(breadProduct[i]))
                                 {
                                     breadProductList.Add(p);
                                     tempFlag = true;
@@ -177,22 +180,24 @@ internal class Program
                         {
                             package.IsProductFreshPackage();
                             package.PrintInfoPackage();
-                        }                            
+                        }
 
                         break;
-                }
+                    }
                 case "3":
-                {
-                    Console.WriteLine("ЗАДАНИЕ 3\n");
+                    {
+                        Console.WriteLine("ЗАДАНИЕ 3\n");
+                        
 
-                    break;
-                }
+
+                        break;
+                    }
                 default:
-                {
-                    Console.WriteLine("Не найден номер задачи. Повторите ввод номера (от 1 до 3)");
+                    {
+                        Console.WriteLine("Не найден номер задачи. Повторите ввод номера (от 1 до 3)");
 
-                    break;
-                }
+                        break;
+                    }
             }
         }
     }

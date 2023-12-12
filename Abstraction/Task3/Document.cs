@@ -1,0 +1,15 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Abstraction.Task3
+{
+    abstract class Document
+    {
+        public int numDoc;
+        public DateTime date;
+        protected Document() { }
+    }
+}
