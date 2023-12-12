@@ -8,19 +8,29 @@ namespace Abstraction.Task1
 {
     internal class Rectangle : Figure
     {
-        public override void getArea()
+        double x, y;
+
+        public Rectangle(int x, int y)
         {
-            throw new NotImplementedException();
+            this.x = x;
+            this.y = y;
         }
 
-        public override void getPerimeter()
+        public override double getArea()
         {
-            throw new NotImplementedException();
+            double s = x * y;
+            return s;
+        }
+
+        public override double getPerimeter()
+        {
+            double p = 2 * (x + y);
+            return p;
         }
 
         public override void Print()
         {
-            throw new NotImplementedException();
+            Console.WriteLine($"Фигура: Прямоугольник, стороны {x} и {y}");
         }
     }
 }

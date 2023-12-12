@@ -8,9 +8,8 @@ namespace Abstraction.Task1
 {
     abstract class Figure
     {
-
-        public abstract void getPerimeter();
-        public abstract void getArea();
+        public abstract double getPerimeter();
+        public abstract double getArea();
         public abstract void Print();
     }
 }

@@ -8,19 +8,28 @@ namespace Abstraction.Task1
 {
     internal class Circle : Figure
     {
-        public override void getArea()
+        double r;
+
+        public Circle(double r)
         {
-            throw new NotImplementedException();
+            this.r = r;
         }
 
-        public override void getPerimeter()
+        public override double getArea()
         {
-            throw new NotImplementedException();
+            double s = Math.PI * Math.Pow(r, 2);
+            return s;
+        }
+
+        public override double getPerimeter()
+        {
+            double p = 2 * Math.PI * r;
+            return p;
         }
 
         public override void Print()
         {
-            throw new NotImplementedException();
+            Console.WriteLine($"Фигура: Круг, радиус {r}");
         }
     }
 }

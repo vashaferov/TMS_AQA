@@ -8,19 +8,31 @@ namespace Abstraction.Task1
 {
     internal class Triangle : Figure
     {
-        public override void getArea()
+        double a, b, c;
+
+        public Triangle(double a, double b, double c)
         {
-            throw new NotImplementedException();
+            this.a = a; 
+            this.b = b; 
+            this.c = c;
         }
 
-        public override void getPerimeter()
+        public override double getArea()
         {
-            throw new NotImplementedException();
+            double pp = 0.5 * getPerimeter();
+            double s = Math.Sqrt(pp * (pp - a) * (pp - b) * (pp - c));
+            return Math.Round(s);
+        }
+
+        public override double getPerimeter()
+        {
+            double p = a + b + c;
+            return Math.Round(p);
         }
 
         public override void Print()
         {
-            throw new NotImplementedException();
+            Console.WriteLine($"Фигура: Треугольник, стороны {a}, {b} и {c}");
         }
     }
 }
