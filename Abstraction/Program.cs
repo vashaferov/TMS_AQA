@@ -29,6 +29,7 @@ internal class Program
         foreach(var character in characters)
         {
             character.Attack();
+            character.Attack();
             character.PrintInfo();
         }
     }
