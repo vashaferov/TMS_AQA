@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace Abstraction.Task1
 {
-    internal class Circle : Figure
+    internal class Circle : Rectangle
     {
-        double r;
+        private double r;
 
+        protected Circle() {}
         public Circle(double r)
         {
             this.r = r;

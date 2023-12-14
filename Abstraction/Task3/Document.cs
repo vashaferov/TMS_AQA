@@ -12,10 +12,12 @@ namespace Abstraction.Task3
         public DateTime date;
         protected Document() { }
 
-        public Document(int numDoc, DateTime date)
+        protected Document(int numDoc, DateTime date)
         {
             this.numDoc = numDoc;
             this.date = date;
         }
+
+        public abstract void PrintInfo();
     }
 }

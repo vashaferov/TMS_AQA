@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Abstraction.Task1
 {
-    abstract class Figure
+    internal abstract class Figure
     {
+        protected Figure() { }
         public abstract double getPerimeter();
         public abstract double getArea();
         public abstract void Print();

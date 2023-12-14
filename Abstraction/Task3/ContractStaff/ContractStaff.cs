@@ -17,5 +17,16 @@ namespace Abstraction.Task3.ContractStaff
             this.dateEnd = dateEnd;
             this.name = name;
         }
+        
+        public override void PrintInfo()
+        {
+            Console.WriteLine($"""
+                               КОНТРАКТ С СОТРУДНИКОМ
+                               Номер документа: {numDoc}
+                               Имя сотрудника: {name}
+                               Дата окончания контракта: {dateEnd}
+                               Дата: {date}
+                               """);
+        }
     }
 }

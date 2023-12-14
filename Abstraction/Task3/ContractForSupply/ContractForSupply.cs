@@ -18,5 +18,16 @@ namespace Abstraction.Task3.ContractForSupply
             this.typeProducts = typeProducts;
             this.amountProducts = amountProducts;
         }
+
+        public override void PrintInfo()
+        {
+            Console.WriteLine($"""
+                               КОНТРАКТ НА ПОСТАВКУ ТОВАРОВ
+                               Номер документа: {numDoc}
+                               Тип товара: {typeProducts}
+                               Количество товаров: {amountProducts}
+                               Дата: {date}
+                               """);
+        }
     }
 }

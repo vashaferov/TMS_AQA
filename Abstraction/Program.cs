@@ -4,6 +4,7 @@ using Abstraction.Task2;
 using Microsoft.Win32;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
+using Abstraction.Task3;
 
 internal class Program
 {
@@ -187,8 +188,40 @@ internal class Program
                 case "3":
                     {
                         Console.WriteLine("ЗАДАНИЕ 3\n");
-                        
 
+                        bool exitFlag = false;
+                        Register register = new Register();
+                        
+                        while (!exitFlag)
+                        {
+                            register.FullnessRegister();
+                            Console.Write("1) Добавить документ\n2) Напечатать документ(ы)\n'q' - для выхода\nТип операции: ");
+                            switch (Console.ReadLine())
+                            {
+                                case "1":
+                                {
+                                    register.Add();
+                                    break;
+                                }
+                                case "2":
+                                {
+                                    Console.WriteLine();
+                                    register.PrintInfo();
+                                    break;
+                                }
+                                case "q":
+                                {
+                                    exitFlag = true;
+                                    break;
+                                }
+                                default:
+                                {
+                                    Console.WriteLine("Не найден номер операции.");
+                                    break;
+                                }
+                            }
+                            
+                        }
 
                         break;
                     }

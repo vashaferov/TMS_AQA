@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Abstraction.Task3
 {
-    internal interface IWorkable 
+    internal interface IWorkable
     {
-        void Add(Register[] doc) { }
+        public void Add();
+        public void PrintInfo();
     }
 }

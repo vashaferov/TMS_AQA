@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Abstraction.Task1
 {
-    internal class Rectangle : Figure
+    internal class Rectangle : Triangle
     {
-        double x, y;
-
+        private double x, y;
+        protected Rectangle() { }
         public Rectangle(int x, int y)
         {
             this.x = x;

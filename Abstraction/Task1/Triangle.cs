@@ -8,8 +8,9 @@ namespace Abstraction.Task1
 {
     internal class Triangle : Figure
     {
-        double a, b, c;
-
+        private double a, b, c;
+        
+        protected Triangle() {}
         public Triangle(double a, double b, double c)
         {
             this.a = a; 

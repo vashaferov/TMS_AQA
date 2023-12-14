@@ -18,5 +18,16 @@ namespace Abstraction.Task3.FinancialInvoice
             this.totalAmount = totalAmount;
             this.departmentCode = departmentCode;
         }
+        
+        public override void PrintInfo()
+        {
+            Console.WriteLine($"""
+                               ФИНАНСОВАЯ НАКЛАДНАЯ
+                               Номер документа: {numDoc}
+                               Код департамента: {departmentCode}
+                               Количество товаров: {totalAmount}
+                               Дата: {date}
+                               """);
+        }
     }
 }
