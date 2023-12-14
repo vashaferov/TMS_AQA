@@ -11,5 +11,11 @@ namespace Abstraction.Task3
         public int numDoc;
         public DateTime date;
         protected Document() { }
+
+        public Document(int numDoc, DateTime date)
+        {
+            this.numDoc = numDoc;
+            this.date = date;
+        }
     }
 }
