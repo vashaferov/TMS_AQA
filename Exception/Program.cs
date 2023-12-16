@@ -1,4 +1,5 @@
 ﻿using Exceptions;
+using Exceptions.Task1;
 
 //ExcUsage excUsage = new ExcUsage();
 ////excUsage.Template();
@@ -28,6 +29,23 @@ while (flag)
             {
                 Console.WriteLine("ЗАДАНИЕ 1\n");
 
+                AuthorizationData authorizationData = new AuthorizationData();
+
+                Console.Write("Введите логин: ");
+                string login = Console.ReadLine();
+                Console.Write("Введите пароль: ");
+                string password = Console.ReadLine();
+                Console.Write("Подтвердите пароль: ");
+                string confirmPassword = Console.ReadLine();
+
+                if (AuthorizationData.CheckData(login, password, confirmPassword))
+                {
+                    authorizationData.Login = login;
+                    authorizationData.Password = password;
+                    Console.WriteLine("Регистрация прошла успешно!");
+                }
+                else
+                    Console.WriteLine("Ошибка!");
                 break;
             }
         case "2":
