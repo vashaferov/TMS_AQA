@@ -32,7 +32,7 @@ namespace Exceptions.Task1
             {
                 throw new WrongPasswordException("Длина пароля должна быть меньше 20 символов, не должен содержать пробелом и должен содержать хотя бы одну цифру!");
             }
-            else if (confirmPassword == password)
+            else if (confirmPassword != password)
             {
                 throw new WrongPasswordException("Пароль не совпал!");
             }

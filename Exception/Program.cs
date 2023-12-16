@@ -1,5 +1,7 @@
 ﻿using Exceptions;
 using Exceptions.Task1;
+using Exceptions.Task2;
+using Exceptions.Task2.ExceptionsOrder;
 
 //ExcUsage excUsage = new ExcUsage();
 ////excUsage.Template();
@@ -52,11 +54,41 @@ while (flag)
             {
                 Console.WriteLine("ЗАДАНИЕ 2\n");
 
+                Order order = new Order();
+
+                try
+                {
+                    Console.Write("Введите номер заказа: ");
+                    order.NumberOrder = Convert.ToInt32(Console.ReadLine());
+                }
+                catch (InvalidOrderNumberException ex)
+                {
+                    Console.WriteLine("Ошибка: " + ex.Message); 
+                }
+                try
+                {
+                    Console.Write("Введите список товаров: ");
+                    order.Products = Console.ReadLine();
+                }
+                catch (EmptyOrderException ex)
+                {
+                    Console.WriteLine("Ошибка: " + ex.Message);
+                }
+                try
+                {
+                    Console.Write("Введите данные для доставки: ");
+                    order.DeliveryAddress = Console.ReadLine();
+                }
+                catch (DeliveryInformationMissingException ex)
+                {
+                    Console.WriteLine("Ошибка: " + ex.Message);
+                }
+
                 break;
             }
         default:
             {
-                Console.WriteLine("Не найден номер задачи. Повторите ввод номера (от 1 до 3)");
+                Console.WriteLine("Не найден номер задачи. Повторите ввод номера (от 1 до 2)");
 
                 break;
             }
