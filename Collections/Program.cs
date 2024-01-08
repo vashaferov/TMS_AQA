@@ -49,4 +49,5 @@ IEnumerable<int> GeneratrNum(int count)
 foreach(var number in GeneratrNum(5))
 {
     Console.WriteLine(number);
+    Console.WriteLine(number);
 }
