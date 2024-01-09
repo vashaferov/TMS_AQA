@@ -14,6 +14,7 @@
 //Person<int, int> person1 = new Person<int, int>(1, 2, "Slava");
 
 using Generic.Task1;
+using Generic.Task2;
 using System.Drawing;
 
 bool flag = true;
@@ -49,6 +50,40 @@ while (flag)
         case "2":
             {
                 Console.WriteLine("ЗАДАНИЕ 2\n");
+
+                Console.Write("Введите размер массива: ");
+                int length = Convert.ToInt32(Console.ReadLine());
+
+                Console.Write("\n1) int\n2) double\nВведите номер нужного типа данных: ");
+                string operation = Console.ReadLine();
+
+                if (operation == "1")
+                    GenericArray<int> genericArrayInt = new GenericArray<int>(length);
+                else
+                    GenericArray<double> genericArrayString = new GenericArray<double>(length);
+
+                Console.WriteLine("\n1) Добавить в массив\n2) Удалить из массива\n3) Получить элемент массива по индексу\n4) Длина массива\nВведите номер операции: ");
+                switch (Console.ReadLine())
+                {
+                    case "1":
+                        {
+                            
+
+                            break;
+                        }
+                    case "2":
+                        {
+
+
+                            break;
+                        }
+                    default:
+                        {
+                            Console.WriteLine("Ошибка!");
+
+                            break;
+                        }
+                }
 
                 break;
             }
