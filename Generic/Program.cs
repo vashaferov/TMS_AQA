@@ -15,6 +15,7 @@
 
 using Generic.Task1;
 using Generic.Task2;
+using Generic.Task3;
 using System.Drawing;
 
 bool flag = true;
@@ -185,6 +186,41 @@ while (flag)
         case "3":
             {
                 Console.WriteLine("ЗАДАНИЕ 3\n");
+
+                Console.Write("1) Дизельный\n2) Бензиновый\n3) Электро\nВведите номер двигателя: ");
+                switch (Console.ReadLine())
+                {
+                    case "1":
+                        {
+                            DieselEngines engine = new DieselEngines();
+                            Car<DieselEngines> car = new Car<DieselEngines>(engine);
+
+                            Console.WriteLine("\nВ машине установлен ДИЗЕЛЬНЫЙ двигатель\nЗаводим двигатель...");
+                            car.Move();
+
+                            break;
+                        }
+                    case "2":
+                        {
+                            PetrolEngines engine = new PetrolEngines();
+                            Car<PetrolEngines> car = new Car<PetrolEngines>(engine);
+
+                            Console.WriteLine("\nВ машине установлен БЕНЗИНОВЫЙ двигатель\nЗаводим двигатель...");
+                            car.Move();
+
+                            break;
+                        }
+                    case "3":
+                        {
+                            ElectricEngines engine = new ElectricEngines();
+                            Car<ElectricEngines> car = new Car<ElectricEngines>(engine);
+
+                            Console.WriteLine("\nВ машине установлен ЭЛЕКТРОДВИГАТЕЛЬ\nЗаводим двигатель...");
+                            car.Move();
+
+                            break;
+                        }
+                }
 
                 break;
             }
