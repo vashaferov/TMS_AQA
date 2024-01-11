@@ -13,3 +13,4 @@ StaticPerson<string>.code = "abc";
 
 Person<Guid, string> person = new Person<Guid, string>(Guid.NewGuid(), "wp", "Slava");
 Person<int, int> person1 = new Person<int, int>(1, 2, "Slava");
+Person<int, int> personw = new Person<int, int>(1, 2, "Slava");
