@@ -51,39 +51,134 @@ while (flag)
             {
                 Console.WriteLine("ЗАДАНИЕ 2\n");
 
+                Random random = new Random();
+                var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+                bool flagExit = true;
+
                 Console.Write("Введите размер массива: ");
                 int length = Convert.ToInt32(Console.ReadLine());
 
                 Console.Write("\n1) int\n2) double\nВведите номер нужного типа данных: ");
                 string operation = Console.ReadLine();
 
+                GenericArray<int> genericArrayInt = new GenericArray<int>(length);
+                GenericArray<double> genericArrayDouble = new GenericArray<double>(length);
+                GenericArray<string> genericArrayString = new GenericArray<string>(length);
+
+                Console.Write("Массив: ");
                 if (operation == "1")
-                    GenericArray<int> genericArrayInt = new GenericArray<int>(length);
+                    for (int i = 0; i < length; i++)
+                    {
+                        genericArrayInt.ArrayGeneric[i] = random.Next(10);
+                        Console.Write(" " + genericArrayInt.ArrayGeneric[i]);
+                    }                       
+                else if (operation == "2")
+                    for (int i = 0; i < length; i++)
+                    {
+                        genericArrayDouble.ArrayGeneric[i] = random.NextDouble();
+                        Console.Write(" " + genericArrayDouble.ArrayGeneric[i]);
+                    }
                 else
-                    GenericArray<double> genericArrayString = new GenericArray<double>(length);
+                    for(int i = 0; i < length; i++)
+                    {
+                        genericArrayString.ArrayGeneric[i] = chars[random.Next(chars.Length)].ToString();
+                        Console.Write(" " + genericArrayString.ArrayGeneric[i]);
+                    }
 
-                Console.WriteLine("\n1) Добавить в массив\n2) Удалить из массива\n3) Получить элемент массива по индексу\n4) Длина массива\nВведите номер операции: ");
-                switch (Console.ReadLine())
+                while (flagExit)
                 {
-                    case "1":
-                        {
-                            
+                    Console.Write("\n1) Добавить в массив\n2) Удалить из массива\n3) Получить элемент массива по индексу\n4) Длина массива\nВведите номер операции: ");
+                    switch (Console.ReadLine())
+                    {
+                        case "1":
+                            {
+                                Console.Write("Добавить в массив: ");
 
-                            break;
-                        }
-                    case "2":
-                        {
+                                if (operation == "1")
+                                {
+                                    genericArrayInt.Add(Convert.ToInt32(Console.ReadLine()));
+                                    genericArrayInt.Print();
+                                }
+                                else if (operation == "2")
+                                {
+                                    genericArrayDouble.Add(Convert.ToDouble(Console.ReadLine()));
+                                    genericArrayDouble.Print();
+                                }
+                                else
+                                {
+                                    genericArrayString.Add(Console.ReadLine());
+                                    genericArrayString.Print();
+                                }
 
+                                break;
+                            }
+                        case "2":
+                            {
+                                Console.Write("Индекс удаляемого элемента из массива: ");
 
-                            break;
-                        }
-                    default:
-                        {
-                            Console.WriteLine("Ошибка!");
+                                if (operation == "1")
+                                {
+                                    genericArrayInt.Remove(Convert.ToInt32(Console.ReadLine()));
+                                    genericArrayInt.Print();
+                                }
+                                else if (operation == "2")
+                                {
+                                    genericArrayDouble.Remove(Convert.ToInt32(Console.ReadLine()));
+                                    genericArrayDouble.Print();
+                                }
+                                else
+                                {
+                                    genericArrayString.Remove(Convert.ToInt32(Console.ReadLine()));
+                                    genericArrayString.Print();
+                                }
 
-                            break;
-                        }
+                                break;
+                            }
+                        case "3":
+                            {
+                                Console.Write("Индекс искомого элемента из массива: ");
+
+                                if (operation == "1")
+                                {
+                                    genericArrayInt.Print();
+                                    genericArrayInt.Find(Convert.ToInt32(Console.ReadLine()));  
+                                }
+                                else if (operation == "2")
+                                {
+                                    genericArrayDouble.Print();
+                                    genericArrayDouble.Find(Convert.ToInt32(Console.ReadLine()));
+                                }
+                                else
+                                {
+                                    genericArrayString.Print();
+                                    genericArrayString.Find(Convert.ToInt32(Console.ReadLine()));                                    
+                                }
+
+                                break;
+                            }
+                        case "4":
+                            {
+                                Console.Write("Индекс удаляемого элемента из массива: ");
+
+                                if (operation == "1")
+                                    genericArrayInt.Length();
+                                else if (operation == "2")
+                                    genericArrayDouble.Length();
+                                else
+                                    genericArrayString.Length();
+
+                                break;
+                            }
+                        default:
+                            {
+                                Console.WriteLine("Ошибка!");
+                                flagExit = false;
+
+                                break;
+                            }
+                    }
                 }
+                
 
                 break;
             }

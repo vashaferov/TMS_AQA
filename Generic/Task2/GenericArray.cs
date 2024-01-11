@@ -8,7 +8,7 @@ namespace Generic.Task2
 {
     internal class GenericArray<T>
     {
-        private T[] ArrayGeneric { get; set; }
+        public T[] ArrayGeneric { get; set; }
 
         public GenericArray(int lengthArray) 
         {
@@ -36,7 +36,7 @@ namespace Generic.Task2
 
         public void Find(int index)
         {
-            if (index < 0 || index > ArrayGeneric.Length)
+            if (index < 0 || index > ArrayGeneric.Length - 1)
                 Console.WriteLine("Индекс за приделом массива");
             else
                 Console.WriteLine($"По индексу {index} в массиве найден элемент: {ArrayGeneric[index]}" );
@@ -45,6 +45,16 @@ namespace Generic.Task2
         public void Length()
         {
             Console.WriteLine("Длина массива: " + ArrayGeneric.Length);
+        }
+
+        public void Print()
+        {
+            Console.Write("Массив:");
+
+            foreach (var item in ArrayGeneric) 
+                Console.Write(" " + item);
+
+            Console.WriteLine();
         }
     }  
 }
