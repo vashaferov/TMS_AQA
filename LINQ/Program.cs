@@ -15,4 +15,12 @@ using System.Net.Http.Headers;
 //new Select().RunQuerySyntax();
 //new Select().RunMethodSyntax();
 
-new TwoInOne().run();
+//new TwoInOne().run();
+
+//new Variables().RunQuerySyntax();
+//new Variables().RunMethodSyntax();
+
+//new DataAggregation().RunQuerySyntax();
+//new DataAggregation().RunMethodSyntax();
+
+new OrderBy().RunQuerySyntax();
