@@ -1,4 +1,4 @@
-zznamespace LINQ;
+namespace LINQ;
 
 public class Except
 {
