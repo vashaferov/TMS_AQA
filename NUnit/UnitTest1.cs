@@ -10,6 +10,7 @@ namespace NUnitProject
         [Test]
         public void Test1()
         {
+            Console.WriteLine($"{this}: Test...");
             Assert.Pass();
         }
     }
