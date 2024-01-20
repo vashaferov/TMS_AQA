@@ -8,6 +8,8 @@
 
 //new Example4().Run();
 
+using Delegate.Task1;
+
 bool flag = true;
 string task;
 
@@ -15,7 +17,6 @@ while (flag)
 {
     Console.Write("-------\nВведите номер задания (от 1 до 4): ");
     task = Console.ReadLine();
-    Console.Clear();
 
     switch (task)
     {
@@ -23,7 +24,7 @@ while (flag)
             {
                 Console.WriteLine("ЗАДАНИЕ 1\n");
 
-                
+                new DelegateForRandomNumbers().Run();
 
                 break;
             }
