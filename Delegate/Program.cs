@@ -8,7 +8,10 @@
 
 //new Example4().Run();
 
+using System.Security.Cryptography.X509Certificates;
+using Delegate;
 using Delegate.Task1;
+
 
 bool flag = true;
 string task;
@@ -31,7 +34,9 @@ while (flag)
         case "2":
             {
                 Console.WriteLine("ЗАДАНИЕ 2\n");
-               
+                               
+                new CalculationFormulas().Run();
+
                 break;
             }
         case "3":
