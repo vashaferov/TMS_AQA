@@ -8,7 +8,6 @@
 
 //new Example4().Run();
 
-using System.Security.Cryptography.X509Certificates;
 using Delegate;
 using Delegate.Task1;
 
@@ -42,6 +41,8 @@ while (flag)
         case "3":
             {
                 Console.WriteLine("ЗАДАНИЕ 3\n");
+
+                new Sorts().Run();
 
                 break;
             }

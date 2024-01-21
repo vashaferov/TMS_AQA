@@ -6,30 +6,25 @@ public class CalculationFormulas
 
     public void Run()
     {
+        FormulaType formulaType = new FormulaType();
+
         Console.Write("Введите радиус: ");
         double r = Convert.ToDouble(Console.ReadLine());
 
-        Formula formula1 = Circumference;
-        Formula formula2 = Area;
-        Formula formula3 = Volume;
+        if(r > 0)
+        {
+            Formula formula1 = formulaType.Circumference;
+            Formula formula2 = formulaType.Area;
+            Formula formula3 = formulaType.Volume;
 
-        Console.WriteLine($"Длина окружности: {formula1(r)}");
-        Console.WriteLine($"Площадь круга: {formula2(r)}");
-        Console.WriteLine($"Объем шара: {formula3(r)}");
+            Console.WriteLine($"Длина окружности: {formula1(r)}");
+            Console.WriteLine($"Площадь круга: {formula2(r)}");
+            Console.WriteLine($"Объем шара: {formula3(r)}");
+        } else
+            Console.WriteLine($"Введите радиус больше {r}");
+
+        
     }
 
-    public double Circumference(double r)
-    {
-        return 2*Math.PI*r;
-    } 
-
-    public double Area(double r)
-    {
-        return Math.PI*Math.Pow(r, 2);
-    } 
-
-    public double Volume(double r)
-    {
-        return 4.0*Math.PI*Math.Pow(r, 3)/3.0;
-    } 
+    
 }
