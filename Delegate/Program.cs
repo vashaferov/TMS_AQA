@@ -50,6 +50,17 @@ while (flag)
             {
                 Console.WriteLine("ЗАДАНИЕ 4\n");
 
+                Calendar calendar = new Calendar();
+                calendar.Notify += calendar.Notification;
+
+                List<Event> events = new List<Event>();
+                events.Add(new Event("Title1", DateTime.Now, "Description1"));
+                events.Add(new Event("Title2", DateTime.Now.AddDays(1), "Description2"));
+                events.Add(new Event("Title3", DateTime.Now.AddDays(-1), "Description3"));
+
+                foreach(var item in events)
+                    calendar.Notification(item);
+
                 break;
             }
         default:
