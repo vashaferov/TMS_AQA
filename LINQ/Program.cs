@@ -54,12 +54,22 @@ while (flag)
                 foreach(var num in numQuery)
                     Console.Write(num + " ");
                 Console.WriteLine();
-                
+
                 break;
             }
         case "2":
             {
                 Console.WriteLine("ЗАДАНИЕ 2\n");
+
+                List<Client> clientList = new List<Client>();
+                clientList.Add(new Client(1, 2024, 5, 10));
+                clientList.Add(new Client(2, 2024, 10, 30));
+                clientList.Add(new Client(3, 2024, 8, 16));
+                clientList.Add(new Client(4, 2024, 3, 10));
+
+                Client result = clientList.GroupBy(x => x.Duration).Select(g => g.Last()).MinBy(x => x.Duration);
+
+                Console.WriteLine($"Продолжительность: {result.Duration}, {result.Year}, {result.Month}");
 
                 break;
             }
