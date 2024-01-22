@@ -67,15 +67,38 @@ while (flag)
                 clientList.Add(new Client(3, 2024, 8, 16));
                 clientList.Add(new Client(4, 2024, 3, 10));
 
+                foreach(var c in clientList)
+                    Console.WriteLine($"Код клиента: {c.Code}, Год: {c.Year}, Месяц: {c.Month}, Продолжительность: {c.Duration}");
+
                 Client result = clientList.GroupBy(x => x.Duration).Select(g => g.Last()).MinBy(x => x.Duration);
 
-                Console.WriteLine($"Продолжительность: {result.Duration}, {result.Year}, {result.Month}");
+                Console.WriteLine($"\nПродолжительность: {result.Duration}, Год: {result.Year}, Месяц: {result.Month}");
 
                 break;
             }
         case "3":
             {
                 Console.WriteLine("ЗАДАНИЕ 3\n");
+
+                List<string> strings = new List<string>()
+                {
+                    "ASDASDAS",
+                    "ASDASEEWRSA",
+                    "PKSDLFDPLSMF",
+                    "OPKA",
+                    "OEKRTOIRE",
+                    "ASDASEEWTSA"
+                };
+
+                Console.WriteLine("Исходная последовательность:");
+                foreach(var s in strings)
+                    Console.WriteLine(s);
+
+                var result = strings.OrderBy(s => s.Length).ThenByDescending(s => s).ToList();
+
+                Console.WriteLine("Последовательность после сортировки:");
+                foreach(var r in result)
+                    Console.WriteLine(r);
 
                 break;
             }
