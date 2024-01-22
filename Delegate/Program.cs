@@ -8,3 +8,5 @@ using Delegate;
 //new Example3().Run();
 
 new Example4().Run();
+
+new Example4().Run();
