@@ -24,3 +24,4 @@ using System.Net.Http.Headers;
 //new DataAggregation().RunMethodSyntax();
 
 new OrderBy().RunQuerySyntax();
+new OrderBy().RunQuerySyntax();
