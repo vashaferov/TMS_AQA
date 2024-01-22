@@ -106,6 +106,35 @@ while (flag)
             {
                 Console.WriteLine("ЗАДАНИЕ 4\n");
 
+                List<Staff> staff = new List<Staff>()
+                {
+                    new Staff("Петров", "Директор"),
+                    new Staff("Иванов", "Инженер"),
+                    new Staff("Семенов", "Конструктор"),
+                    new Staff("Горшков", "Дизайнер"),
+                    new Staff("Уткин", "Инженер"),
+                    new Staff("Лебедев", "Конструктор"),
+                };
+
+                List<Sheet> sheet = new List<Sheet>()
+                {
+                    new Sheet("Петров", 80000),
+                    new Sheet("Иванов", 40000),
+                    new Sheet("Семенов", 55000),
+                    new Sheet("Горшков", 40000),
+                    new Sheet("Уткин", 50000),
+                    new Sheet("Лебедев", 40000)
+                };
+
+                
+                var result = from st in staff 
+                    join sh in sheet on st.Lastname equals sh.Lastname
+                    group new {st, sh} by st.Specialty into grp
+                    select new {Specialty = grp.Key, Salary = grp.Sum(x => x.sh.Salary)};
+                
+                foreach(var r in result)
+                    Console.WriteLine($"Специальность: {r.Specialty}, ЗП: {r.Salary}");
+
                 break;
             }
         default:
