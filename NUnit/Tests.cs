@@ -15,10 +15,10 @@ namespace NUnitProject
         [SetUp]
         public void Setup()
         {
-            int a = 6;
-            int b = 3;
-            double c = 25.5;
-            double d = 2.5;
+            a = 6;
+            b = 3;
+            c = 25.5;
+            d = 2.5;
         }
         
         [Order(1), Category("Positive"), Category("int")]
