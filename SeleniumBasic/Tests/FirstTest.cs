@@ -1,8 +1,8 @@
-using NUnitTest.Core;
+using SeleniumBasic.Core;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 
-namespace NUnitTest.Tests;
+namespace SeleniumBasic.Tests;
 
 public class FirstTest : BaseTest
 {
@@ -28,7 +28,7 @@ public class FirstTest : BaseTest
     {
         Driver.Navigate().GoToUrl("https://bymed.top/calc/%D1%81%D0%BA%D1%84-2148");
         Thread.Sleep(3000);
-        Driver.SwitchTo().Frame(1);
+        Driver.SwitchTo().Frame(0);
         
         IWebElement selectWebElement = Driver.FindElement(By.Id("cr-size"));
         SelectElement selectElement = new SelectElement(selectWebElement);

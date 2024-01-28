@@ -1,7 +1,7 @@
-﻿using NUnitTest.Utilites.Configuration;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
+using SeleniumBasic.Utilites.Configuration;
 
-namespace NUnitTest.Core
+namespace SeleniumBasic.Core
 {
     public class Browser
     {
@@ -17,7 +17,7 @@ namespace NUnitTest.Core
 
             Driver?.Manage().Window.Maximize();
             Driver?.Manage().Cookies.DeleteAllCookies();
-            //Driver!.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(0);
+            Driver!.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(0);
         }
     }
 }

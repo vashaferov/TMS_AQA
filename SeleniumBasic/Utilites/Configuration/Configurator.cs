@@ -1,7 +1,7 @@
 using System.Reflection;
 using Microsoft.Extensions.Configuration;
 
-namespace NUnitTest.Utilites.Configuration
+namespace SeleniumBasic.Utilites.Configuration
 {
     public static class Configurator
     {

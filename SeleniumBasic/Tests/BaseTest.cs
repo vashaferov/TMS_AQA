@@ -1,9 +1,9 @@
 using NUnit.Framework;
-using NUnitTest.Core;
-using NUnitTest.Utilites.Configuration;
+using SeleniumBasic.Utilites.Configuration;
 using OpenQA.Selenium;
+using SeleniumBasic.Core;
 
-namespace NUnitTest.Tests;
+namespace SeleniumBasic.Tests;
 
 [Parallelizable(scope: ParallelScope.All)]
 [FixtureLifeCycle(LifeCycle.InstancePerTestCase)]

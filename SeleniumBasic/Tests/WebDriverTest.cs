@@ -1,7 +1,7 @@
-using NUnitTest.Core;
 using OpenQA.Selenium;
+using SeleniumBasic.Core;
 
-namespace NUnitTest.Tests;
+namespace SeleniumBasic.Tests;
 
 [TestFixture]
 public class WebDriverTest

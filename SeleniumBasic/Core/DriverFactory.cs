@@ -4,7 +4,7 @@ using WebDriverManager;
 using WebDriverManager.DriverConfigs.Impl;
 using LogLevel = OpenQA.Selenium.LogLevel;
 
-namespace NUnitTest.Core;
+namespace SeleniumBasic.Core;
 
 public class DriverFactory
 {
