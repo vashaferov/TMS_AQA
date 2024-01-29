@@ -41,6 +41,7 @@ public class FirstTest : BaseTest
         
         selectElement.SelectByText("мг/дл");
         Thread.Sleep(2000);
+        Thread.Sleep(2000);
     }
 
     [Test]
