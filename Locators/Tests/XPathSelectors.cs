@@ -79,6 +79,7 @@ public class XPathSelectors : BaseTest
 
         //Использование preceding- Выбирает все узлы, которые появляются перед текущим узлом в документе
         Assert.That(Driver.FindElement(By.XPath("//*[@class=\"dialog-title\"]/preceding::form")).Displayed);
+        Assert.That(Driver.FindElement(By.XPath("//*[@class=\"dialog-title\"]/preceding::form")).Displayed);
 
         //Использование preceding-sibling - Выбирает все узлы одного уровня до текущего узла
         Assert.That(Driver.FindElement(By.XPath("//*[@class='dialog-title']/preceding-sibling::form"))
