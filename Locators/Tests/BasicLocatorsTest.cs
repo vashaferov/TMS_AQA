@@ -1,9 +1,9 @@
-using Locators.Helpers.Configuration;
-using Locators.Tests;
+using SauceDemo.Tests;
 using OpenQA.Selenium;
+using SauceDemo.Helpers.Configuration;
 
 
-namespace Locators.Tests;
+namespace SauceDemo.Tests;
 
 public class BasicLocatorsTest : BaseTest
 {

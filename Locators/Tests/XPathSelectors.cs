@@ -1,7 +1,7 @@
-using Locators.Helpers.Configuration;
 using OpenQA.Selenium;
+using SauceDemo.Helpers.Configuration;
 
-namespace Locators.Tests;
+namespace SauceDemo.Tests;
 
 public class XPathSelectors : BaseTest
 {
