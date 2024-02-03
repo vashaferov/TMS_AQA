@@ -79,6 +79,8 @@ public class AdvancedTest : BaseTest
         fileUploadPath.SendKeys(filePath);
         
         WaitsHelper.WaitForExists(By.Id("file-submit")).Submit();
+        
+        Assert.That(WaitsHelper.WaitForExists(By.Id("uploaded-files")).Text, Is.EqualTo("download.jpeg"));
     }
     
     [Test]
