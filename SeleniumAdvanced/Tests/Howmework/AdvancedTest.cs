@@ -92,18 +92,25 @@ public class AdvancedTest : BaseTest
 
         Driver.SwitchTo().Frame("mce_0_ifr");
         
-        Assert.That(WaitsHelper.WaitForVisibilityLocatedBy(By.XPath("//*[@id=\"tinymce\"]/p")).Text, Is.EqualTo("Your content goes here."));
+        Assert.That(WaitsHelper.WaitForVisibilityLocatedBy(By.XPath("//*[@id='tinymce']/p")).Text, Is.EqualTo("Your content goes here."));
     }
     
     [Test]
     [Description("Task5. File Download")]
     public void FileDownloadTest()
     {
+        string downloadDirectory = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "Resources", "LambdaTest.txt");
+        
+        if(File.Exists(downloadDirectory))
+            File.Delete(downloadDirectory);
+        
         Driver.Navigate().GoToUrl("http://the-internet.herokuapp.com/ ");
         
         Driver.FindElement(By.LinkText("File Download")).Click();
         Driver.FindElement(By.LinkText("LambdaTest.txt")).Click();
+        
+        Thread.Sleep(10000);
 
-        Path file = new Path(Path.GetDirectoryName(Assembly.));
+        Assert.That(File.Exists(downloadDirectory));
     }
 }
