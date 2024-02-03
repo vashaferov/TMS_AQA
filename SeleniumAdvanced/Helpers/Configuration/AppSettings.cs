@@ -1,4 +1,4 @@
-namespace NUnitTest.Utilites.Configuration;
+namespace SeleniumAdvanced.Helpers.Configuration;
 
 public class AppSettings
 {

@@ -1,7 +1,7 @@
 using OpenQA.Selenium;
-using SeleniumAdvanced.Utilites;
+using SeleniumAdvanced.Helpers;
 
-namespace NUnitTest.Tests;
+namespace SeleniumAdvanced.Tests;
 
 public class WaitsTest : BaseTest
 {

@@ -1,11 +1,11 @@
 using AngleSharp;
 using NUnit.Framework;
-using NUnitTest.Core;
-using NUnitTest.Utilites.Configuration;
+using SeleniumAdvanced.Core;
+using SeleniumAdvanced.Helpers.Configuration;
 using OpenQA.Selenium;
-using SeleniumAdvanced.Utilites;
+using SeleniumAdvanced.Helpers;
 
-namespace NUnitTest.Tests;
+namespace SeleniumAdvanced.Tests;
 
 [Parallelizable(scope: ParallelScope.All)]
 [FixtureLifeCycle(LifeCycle.InstancePerTestCase)]
