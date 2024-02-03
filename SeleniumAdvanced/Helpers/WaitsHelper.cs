@@ -46,12 +46,17 @@ public class WaitsHelper(IWebDriver driver, TimeSpan timeout)
 
     public IWebElement FluentWaitForElement(By locator)
     {
-        WebDriverWait fluentWait = new WebDriverWait(driver, TimeSpan.FromSeconds(2))
+        WebDriverWait fluentWait = new WebDriverWait(driver, TimeSpan.FromSeconds(10))
         {
             PollingInterval = TimeSpan.FromMilliseconds(50),
         };
         fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException));
 
         return fluentWait.Until(d => driver.FindElement(locator));
+    }
+    
+    public IWebElement WaitForExists(By locator)
+    {
+        return _wait.Until(ExpectedConditions.ElementExists(locator));
     }
 }
