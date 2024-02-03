@@ -1,6 +1,6 @@
 using OpenQA.Selenium;
 
-namespace NUnitTest.Tests;
+namespace SeleniumAdvanced.Tests;
 
 public class AlertTests : BaseTest
 {

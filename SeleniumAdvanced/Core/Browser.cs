@@ -1,7 +1,7 @@
-﻿using NUnitTest.Utilites.Configuration;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
+using SeleniumAdvanced.Utilites.Configuration;
 
-namespace NUnitTest.Core
+namespace SeleniumAdvanced.Core
 {
     public class Browser
     {
