@@ -17,6 +17,8 @@ public class BaseTest
     {
         Driver = new Browser().Driver;
         WaitsHelper = new WaitsHelper(Driver, TimeSpan.FromSeconds(Configurator.WaitsTimeout));
+        
+        Driver.Navigate().GoToUrl(Configurator.AppSettings.URL);
     }
 
     [TearDown]
