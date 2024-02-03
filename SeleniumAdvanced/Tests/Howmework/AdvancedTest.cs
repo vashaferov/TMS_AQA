@@ -12,6 +12,6 @@ public class AdvancedTest : BaseTest
         // Task1. Context Menu
         Driver.FindElement(By.LinkText("Context Menu")).Click();
         
-        
+        IWebElement box = WaitsHelper.FluentWaitForElement(By.Id("hot-spot"));
     }
 }
