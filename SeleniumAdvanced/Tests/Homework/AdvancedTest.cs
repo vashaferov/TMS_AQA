@@ -3,7 +3,7 @@ using System.Reflection;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
 
-namespace SeleniumAdvanced.Tests.Howmework;
+namespace SeleniumAdvanced.Tests.Homework;
 
 public class AdvancedTest : BaseTest
 {
@@ -11,7 +11,7 @@ public class AdvancedTest : BaseTest
     [Description("Task1. Context Menu")]
     public void ContextMenuTest()
     {
-        Driver.Navigate().GoToUrl("http://the-internet.herokuapp.com/ ");
+        Driver.Navigate().GoToUrl("http://the-internet.herokuapp.com/");
         
         Driver.FindElement(By.LinkText("Context Menu")).Click();
         
@@ -34,7 +34,7 @@ public class AdvancedTest : BaseTest
     [Description("Task2. Dynamic Controls")]
     public void DynamicControlsTest()
     {
-        Driver.Navigate().GoToUrl("http://the-internet.herokuapp.com/ ");
+        Driver.Navigate().GoToUrl("http://the-internet.herokuapp.com/");
         
         Driver.FindElement(By.LinkText("Dynamic Controls")).Click();
         
@@ -51,23 +51,29 @@ public class AdvancedTest : BaseTest
             .Perform();
 
         IWebElement messageRemoveElement = WaitsHelper.FluentWaitForElement(By.XPath("//form[1]/p"));
-        Assert.That(messageRemoveElement.Text, Is.EqualTo("It's gone!"));
-        Assert.That(WaitsHelper.WaitForElementInvisible(checkboxElement));
+        Assert.Multiple(() =>
+        {
+            Assert.That(messageRemoveElement.Text, Is.EqualTo("It's gone!"));
+            Assert.That(WaitsHelper.WaitForElementInvisible(checkboxElement));
+        });
         
         Assert.That(!elementInput.Enabled);
         
         enableButton.Click();
         
         IWebElement messageEnableElement = WaitsHelper.FluentWaitForElement(By.XPath("//form[2]/p"));
-        Assert.That(messageEnableElement.Text, Is.EqualTo("It's enabled!"));
-        Assert.That(elementInput.Enabled);
+        Assert.Multiple(() =>
+        {
+            Assert.That(messageEnableElement.Text, Is.EqualTo("It's enabled!"));
+            Assert.That(elementInput.Enabled);
+        });
     }
     
     [Test]
     [Description("Task3. File Upload")]
     public void FileUploadTest()
     {
-        Driver.Navigate().GoToUrl("http://the-internet.herokuapp.com/ ");
+        Driver.Navigate().GoToUrl("http://the-internet.herokuapp.com/");
         
         Driver.FindElement(By.LinkText("File Upload")).Click();
 
@@ -87,7 +93,7 @@ public class AdvancedTest : BaseTest
     [Description("Task4. Frames")]
     public void FramesTest()
     {
-        Driver.Navigate().GoToUrl("http://the-internet.herokuapp.com/ ");
+        Driver.Navigate().GoToUrl("http://the-internet.herokuapp.com/");
         
         Driver.FindElement(By.LinkText("Frames")).Click();
         Driver.FindElement(By.LinkText("iFrame")).Click();
@@ -106,13 +112,29 @@ public class AdvancedTest : BaseTest
         if(File.Exists(downloadDirectory))
             File.Delete(downloadDirectory);
         
-        Driver.Navigate().GoToUrl("http://the-internet.herokuapp.com/ ");
+        Driver.Navigate().GoToUrl("http://the-internet.herokuapp.com/");
         
         Driver.FindElement(By.LinkText("File Download")).Click();
         Driver.FindElement(By.LinkText("LambdaTest.txt")).Click();
-        
-        Thread.Sleep(10000);
 
-        Assert.That(File.Exists(downloadDirectory));
+        Assert.That(DownloadCheck(downloadDirectory, 60));
+    }
+
+    private bool DownloadCheck(string path, int waitTime)
+    {
+        int attempt = 1;
+        int attemptMax = 10;
+        double time = waitTime / attemptMax;
+
+        while (attempt <= attemptMax)
+        {
+            if (File.Exists(path))
+                return true;
+            
+            Thread.Sleep(TimeSpan.FromSeconds(time));
+            attempt++;
+        }
+
+        return false;
     }
 }
