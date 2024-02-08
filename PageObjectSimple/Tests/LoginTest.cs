@@ -8,8 +8,9 @@ public class LoginTest : BaseTest
     [Test]
     public void SuccessLoginTest()
     {
+        Assert.That(new LoginPage(Driver).SuccessfulLogin(Configurator.AppSettings.Username, Configurator.AppSettings.Password)
+            .IsPageOpened);
         
-        var loginPage = new LoginPage(Driver);
-        loginPage.EmailInput().SendKeys(Configurator.AppSettings.Username);
+        Assert.That(UserSteps.SuccessfulLogin(Configurator.AppSettings.Username, Configurator.AppSettings.Password).TitleLabel().Text.Trim(), Is.EqualTo("All Projects"));
     }
 }

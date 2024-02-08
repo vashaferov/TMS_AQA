@@ -27,6 +27,9 @@
 
     <ItemGroup>
       <Content Include="Helpers\.DS_Store" />
+      <Content Update="appsettings.json.back">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
       <None Remove="appsettings.json" />
       <Content Include="appsettings.json">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
