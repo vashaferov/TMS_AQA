@@ -1,4 +1,5 @@
 using Allure.Helpers.Configuration;
+using NUnit.Allure.Core;
 
 namespace Allure.Tests;
 

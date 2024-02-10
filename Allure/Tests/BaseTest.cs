@@ -1,13 +1,16 @@
 using Allure.Core;
 using Allure.Helpers;
 using Allure.Helpers.Configuration;
+using Allure.Net.Commons;
 using Allure.Steps;
+using NUnit.Allure.Core;
 using OpenQA.Selenium;
 
 namespace Allure.Tests;
 
 [Parallelizable(scope: ParallelScope.All)]
 [FixtureLifeCycle(LifeCycle.InstancePerTestCase)]
+[AllureNUnit]
 public class BaseTest
 {
     protected IWebDriver Driver { get; private set; }
@@ -16,6 +19,12 @@ public class BaseTest
     protected NavigationSteps NavigationSteps;
     protected ProjectSteps ProjectSteps;
 
+    [OneTimeSetUp]
+    public static void GlobalSetup()
+    {
+        AllureLifecycle.Instance.CleanupResultDirectory();
+    }
+    
     [SetUp]
     public void Setup()
     {
