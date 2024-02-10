@@ -2,14 +2,14 @@ using PageObjectSimple.Helpers.Configuration;
 
 namespace PageObjectSimple.Tests;
 
-public class LoginTest : BaseTest
+public class ProjectsTest : BaseTest
 {
     [Test]
-    public void SuccessLoginTest()
+    public void CreateProjectTest()
     {
         NavigationSteps.NavigateToLoginPage();
         NavigationSteps.SuccessfulLogin(Configurator.AppSettings.Username, Configurator.AppSettings.Password);
-
-        Assert.That(NavigationSteps.DashboardPage.IsPageOpened());
+        
+        ProjectSteps.NavigateToAddProjectPage();
     }
 }
