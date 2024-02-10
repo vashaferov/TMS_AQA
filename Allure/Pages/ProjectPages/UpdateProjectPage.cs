@@ -1,6 +1,6 @@
 using OpenQA.Selenium;
 
-namespace PageObjectSimple.Pages.ProjectPages;
+namespace Allure.Pages.ProjectPages;
 
 public class UpdateProjectPage : BasePage
 {

@@ -1,6 +1,6 @@
-using PageObjectSimple.Helpers.Configuration;
+using Allure.Helpers.Configuration;
 
-namespace PageObjectSimple.Tests;
+namespace Allure.Tests;
 
 public class LoginTest : BaseTest
 {
