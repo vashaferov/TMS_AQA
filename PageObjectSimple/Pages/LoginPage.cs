@@ -7,10 +7,10 @@ namespace PageObjectSimple.Pages
         private static string END_POINT = "";
         
         // Описание элементов
-        private static readonly By EmailInputBy = By.Id("name");
+        private static readonly By EmailInputBy = By.Id("user-name");
         private static readonly By PswInputBy = By.Id("password");
-        private static readonly By RememberMeCheckboxBy = By.Id("rememberme");
-        private static readonly By LoginInButtonBy = By.Id("button_primary");
+        private static readonly By LoginInButtonBy = By.Id("login-button");
+        private static readonly By ErrorContainerBy = By.ClassName("error-message-container");
         
         // Инициализация класса
         public LoginPage(IWebDriver driver, bool openPageByUrl) : base(driver, openPageByUrl)
@@ -24,13 +24,12 @@ namespace PageObjectSimple.Pages
         {
             try
             {
-                return LoginInButton().Displayed;
+                return LoginInButton.Displayed;
             }
             catch (Exception)
             {
                 return false;
             }
-            
         }
 
         protected override string GetEndpoint()
@@ -38,25 +37,16 @@ namespace PageObjectSimple.Pages
             return END_POINT;
         }
 
+
         // Методы
-        public IWebElement EmailInput()
-        {
-            return Driver.FindElement(EmailInputBy);  
-        }
+        public IWebElement EmailInput => WaitsHelper.WaitForExists(EmailInputBy);
+        public IWebElement PswInput => WaitsHelper.WaitForExists(PswInputBy);
+        public IWebElement LoginInButton => WaitsHelper.WaitForExists(LoginInButtonBy);
+        public IWebElement ErrorContainer => WaitsHelper.WaitForExists(ErrorContainerBy);
 
-        public IWebElement PswInput()
+        public void LoginButtonClick()
         {
-            return Driver.FindElement(PswInputBy);
-        }
-
-        public IWebElement RememberMeCheckbox()
-        {
-            return Driver.FindElement(RememberMeCheckboxBy);  
-        }
-
-        public IWebElement LoginInButton()
-        {
-           return Driver.FindElement(LoginInButtonBy);
+            LoginInButton.Click();
         }
     }
 }

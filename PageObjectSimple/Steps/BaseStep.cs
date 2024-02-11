@@ -1,6 +1,5 @@
 using OpenQA.Selenium;
 using PageObjectSimple.Pages;
-using PageObjectSimple.Pages.ProjectPages;
 
 namespace PageObjectSimple.Steps;
 
@@ -9,8 +8,7 @@ public class BaseStep
     protected IWebDriver Driver;
 
     public LoginPage LoginPage => new LoginPage(Driver);
-    public DashboardPage DashboardPage => new DashboardPage(Driver);
-    public AddProjectPage AddProjectPage => new AddProjectPage(Driver);
+    public CatalogPage CatalogPage => new CatalogPage(Driver, true);
 
     public BaseStep(IWebDriver driver)
     {

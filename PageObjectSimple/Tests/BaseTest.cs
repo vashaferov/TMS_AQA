@@ -3,6 +3,7 @@ using PageObjectSimple.Steps;
 using PageObjectSimple.Core;
 using PageObjectSimple.Helpers;
 using PageObjectSimple.Helpers.Configuration;
+using PageObjectSimple.Pages;
 
 namespace PageObjectSimple.Tests;
 
@@ -13,8 +14,8 @@ public class BaseTest
     protected IWebDriver Driver { get; private set; }
     protected WaitsHelper WaitsHelper { get; private set; }
 
-    protected NavigationSteps NavigationSteps;
-    protected ProjectSteps ProjectSteps;
+    protected LoginSteps LoginSteps;
+    protected CatalogSteps CatalogSteps;
 
     [SetUp]
     public void Setup()
@@ -23,8 +24,8 @@ public class BaseTest
         WaitsHelper = new WaitsHelper(Driver, TimeSpan.FromSeconds(Configurator.WaitsTimeout));
         
         // Инициализация Steps
-        NavigationSteps = new NavigationSteps(Driver);
-        ProjectSteps = new ProjectSteps(Driver);
+        LoginSteps = new LoginSteps(Driver);
+        CatalogSteps = new CatalogSteps(Driver);
     }
 
     [TearDown]
