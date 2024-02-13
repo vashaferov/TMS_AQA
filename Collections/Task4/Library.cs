@@ -43,12 +43,13 @@ namespace Collections.Task4
         }
 
         public void ReturnBook(Reader reader, Book book)
-        {               
-                readerDictionary.TryGetValue(reader, out ISet<Book> bookSet);
-                bookSet.Remove(book);
+        {
+            if (readerDictionary.TryGetValue(reader, out ISet<Book> bookSet) && bookSet.Remove(book))
+            {
                 book.AvailabilityBook = true;
-
                 Console.WriteLine("Книга возвращена в библиотеку");
+            } else
+                Console.WriteLine("Ошибка. Книга не найдена у читателя!");
         }
 
         public void PrintBook()
