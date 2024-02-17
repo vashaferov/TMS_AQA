@@ -1,6 +1,6 @@
 namespace Wrappers.Elements;
 
-public class Checkbox //: UIElement
+public class Checkbox 
 {
     public void Click()
     {

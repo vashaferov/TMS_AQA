@@ -8,6 +8,7 @@ public class RadioButton
 {
     private List<UIElement> _uiElements;
     private List<string> _values;
+    private List<string> _texts;
     
     /// <summary>
     /// Данный элемент должен использовать атрибут 'name' для локатора
@@ -18,6 +19,7 @@ public class RadioButton
     {
         _uiElements = new List<UIElement>();
         _values = new List<string>();
+        _texts = new List<string>();
         
         WaitsHelper _waitsHelper = new WaitsHelper(driver, TimeSpan.FromSeconds(Configurator.WaitsTimeout));
         foreach (var webElement in _waitsHelper.WaitForAllPresenceElementsLocatedBy(by))
@@ -25,12 +27,11 @@ public class RadioButton
             UIElement uiElement = new UIElement(driver, webElement);
             _uiElements.Add(uiElement);
             _values.Add(uiElement.GetAttribute("value"));
+            _texts.Add(uiElement.FindUIElement(By.XPath("parent::*/strong")).Text.Trim());
         }
-        
     }
     public RadioButton(IWebDriver driver, IWebElement webElement)
     {
-        
     }
 
     public void SelectByIndex(int index)
@@ -43,16 +44,9 @@ public class RadioButton
         {
             throw new AssertionException("Привышен индекс");
         }
-        
     }
     
-    public void SelectByValue(string value)
-    {
-        _uiElements[_values.IndexOf(value)].Click();
-    }
-    
-    public void SelectByText(int text)
-    {
-        
-    }
+    public void SelectByValue(string value) => _uiElements[_values.IndexOf(value)].Click();
+    public void SelectByText(string text) => _uiElements[_texts.IndexOf(text)].Click();
+    public List<string> GetOptions() => _texts;
 }

@@ -46,6 +46,15 @@ public class UIElement : IWebElement
     {
         return _webElement.FindElements(by);
     }
+    public List<UIElement> FindUIElements(By by)
+    {
+        var result = new List<UIElement>();
+        foreach (var webElement in FindElements(by))
+        {
+            result.Add(new UIElement(_webDriver, webElement));
+        }
+        return result;
+    }
 
     public void Clear()
     {
@@ -131,7 +140,7 @@ public class UIElement : IWebElement
                 }
                 return GetAttribute("value");
             }
-            return Text;
+            return _webElement.Text;
         }
     }
     public bool Enabled => _webElement.Enabled;
