@@ -9,6 +9,7 @@ public class BaseStep
 
     public LoginPage LoginPage => new LoginPage(Driver);
     public CatalogPage CatalogPage => new CatalogPage(Driver, true);
+    public CartPage CartPage => new CartPage(Driver, false);
 
     public BaseStep(IWebDriver driver)
     {

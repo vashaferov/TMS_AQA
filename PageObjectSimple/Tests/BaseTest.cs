@@ -16,6 +16,7 @@ public class BaseTest
 
     protected LoginSteps LoginSteps;
     protected CatalogSteps CatalogSteps;
+    protected CartSteps CartSteps;
 
     [SetUp]
     public void Setup()
@@ -26,6 +27,7 @@ public class BaseTest
         // Инициализация Steps
         LoginSteps = new LoginSteps(Driver);
         CatalogSteps = new CatalogSteps(Driver);
+        CartSteps = new CartSteps(Driver);
     }
 
     [TearDown]
