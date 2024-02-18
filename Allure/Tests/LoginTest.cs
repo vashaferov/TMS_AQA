@@ -1,9 +1,12 @@
-using PageObjectSimple.Helpers.Configuration;
-using PageObjectSimple.Pages;
-using PageObjectSimple.Steps;
+using Allure.Helpers.Configuration;
+using Allure.Pages;
+using Allure.Steps;
+using NUnit.Allure.Attributes;
 
-namespace PageObjectSimple.Tests;
+namespace Allure.Tests;
 
+[AllureSuite("Логин тесты")]
+[AllureOwner("vashaferov")]
 public class LoginTest : BaseTest
 {
     [TestCase("standard_user")]
@@ -28,6 +31,7 @@ public class LoginTest : BaseTest
         LoginSteps.IncorrectLogin(Configurator.AppSettings.Username, "");
 
         Assert.That(LoginSteps.ErorrText(), Is.EqualTo("Epic sadface: Password is required"));
+        StepAndScreenshot("Получена нужная ошибка");
     }
     
     [Test]
@@ -38,7 +42,6 @@ public class LoginTest : BaseTest
         LoginSteps.IncorrectLogin("locked_out_user", Configurator.AppSettings.Password);
 
         Assert.That(LoginSteps.ErorrText(), Is.EqualTo("Epic sadface: Sorry, this user has been locked out."));
+        StepAndScreenshot("Получена нужная ошибка");
     }
-    
-    
 }

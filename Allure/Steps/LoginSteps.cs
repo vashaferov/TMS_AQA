@@ -1,7 +1,8 @@
+using Allure.Pages;
+using NUnit.Allure.Attributes;
 using OpenQA.Selenium;
-using PageObjectSimple.Pages;
 
-namespace PageObjectSimple.Steps;
+namespace Allure.Steps;
 
 public class LoginSteps : BaseStep
 {
@@ -9,28 +10,27 @@ public class LoginSteps : BaseStep
     {
     }
     
+    [AllureStep("Переход на страницу ввода логина")]
     public LoginPage NavigateToLoginPage()
     {
         return new LoginPage(Driver, true);
     }
-
-    public CatalogPage NavigateToCatalogPage()
-    {
-        return new CatalogPage(Driver, true);
-    }
-
+    
+    [AllureStep("Успешный вход в систему")]
     public CatalogPage SuccessfulLogin(string username, string psw)
     {
         Login(username, psw);
         return CatalogPage;
     }
 
+    [AllureStep("Неуспешный вход в систему")]
     public LoginPage IncorrectLogin(string username, string psw)
     {
         Login(username, psw);
         return LoginPage;
     }
     
+    [AllureStep("Получение ошибки")]
     public string ErorrText()
     {
         return LoginPage.ErrorContainer.Text;

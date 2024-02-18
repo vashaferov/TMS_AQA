@@ -1,7 +1,7 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 
-namespace PageObjectSimple.Pages;
+namespace Allure.Pages;
 
 public class CatalogPage : BasePage
 {
