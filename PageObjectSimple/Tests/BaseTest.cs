@@ -15,8 +15,8 @@ public class BaseTest
     protected WaitsHelper WaitsHelper { get; private set; }
 
     protected LoginSteps LoginSteps;
-    protected CatalogSteps CatalogSteps;
-    protected CartSteps CartSteps;
+    protected OrderSteps OrderSteps;
+    protected CheckoutYourInformationSteps CheckoutYourInformationSteps;
 
     [SetUp]
     public void Setup()
@@ -26,8 +26,8 @@ public class BaseTest
         
         // Инициализация Steps
         LoginSteps = new LoginSteps(Driver);
-        CatalogSteps = new CatalogSteps(Driver);
-        CartSteps = new CartSteps(Driver);
+        OrderSteps = new OrderSteps(Driver);
+        CheckoutYourInformationSteps = new CheckoutYourInformationSteps(Driver);
     }
 
     [TearDown]
