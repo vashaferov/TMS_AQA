@@ -1,8 +1,10 @@
+using OpenQA.Selenium;
+
 namespace Wrappers.Elements;
 
 public class Checkbox 
 {
-    public void Click()
+    public Checkbox(IWebDriver driver, By by)
     {
         
     }
