@@ -1,10 +1,10 @@
+using NativeSingleton.Core;
+using NativeSingleton.Helpers.Configuration;
+using NativeSingleton.Models;
+using NativeSingleton.Steps;
 using OpenQA.Selenium;
-using ValueOfObjects.Core;
-using ValueOfObjects.Helpers.Configuration;
-using ValueOfObjects.Models;
-using ValueOfObjects.Steps;
 
-namespace ValueOfObjects.Tests;
+namespace NativeSingleton.Tests;
 
 [Parallelizable(scope: ParallelScope.All)]
 [FixtureLifeCycle(LifeCycle.InstancePerTestCase)]

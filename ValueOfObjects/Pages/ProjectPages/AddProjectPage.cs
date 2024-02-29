@@ -1,7 +1,7 @@
+using NativeSingleton.Elements;
 using OpenQA.Selenium;
-using ValueOfObjects.Elements;
 
-namespace ValueOfObjects.Pages.ProjectPages;
+namespace NativeSingleton.Pages.ProjectPages;
 
 public class AddProjectPage(IWebDriver? driver, bool openByURL = false) : ProjectBasePage(driver, openByURL)
 {

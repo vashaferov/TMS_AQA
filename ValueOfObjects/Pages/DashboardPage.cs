@@ -1,6 +1,6 @@
 using OpenQA.Selenium;
 
-namespace ValueOfObjects.Pages
+namespace NativeSingleton.Pages
 {
     public class DashboardPage(IWebDriver? driver, bool openByURL = false) : BasePage(driver, openByURL)
     {

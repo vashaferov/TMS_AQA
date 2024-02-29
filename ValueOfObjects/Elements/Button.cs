@@ -1,6 +1,6 @@
 using OpenQA.Selenium;
 
-namespace ValueOfObjects.Elements;
+namespace NativeSingleton.Elements;
 
 public class Button
 {

@@ -1,9 +1,9 @@
+using NativeSingleton.Models;
+using NativeSingleton.Pages;
+using NativeSingleton.Pages.ProjectPages;
 using OpenQA.Selenium;
-using ValueOfObjects.Models;
-using ValueOfObjects.Pages;
-using ValueOfObjects.Pages.ProjectPages;
 
-namespace ValueOfObjects.Steps;
+namespace NativeSingleton.Steps;
 
 public class NavigationSteps : BaseStep
 {

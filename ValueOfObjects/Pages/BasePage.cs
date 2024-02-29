@@ -1,9 +1,9 @@
+using NativeSingleton.Helpers;
+using NativeSingleton.Helpers.Configuration;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
-using ValueOfObjects.Helpers;
-using ValueOfObjects.Helpers.Configuration;
 
-namespace ValueOfObjects.Pages;
+namespace NativeSingleton.Pages;
 
 public abstract class BasePage : LoadableComponent<BasePage>
 {

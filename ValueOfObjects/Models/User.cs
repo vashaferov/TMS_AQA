@@ -1,4 +1,4 @@
-namespace ValueOfObjects.Models;
+namespace NativeSingleton.Models;
 
 public class User
 {

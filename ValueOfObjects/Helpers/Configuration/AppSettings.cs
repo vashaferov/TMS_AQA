@@ -1,4 +1,4 @@
-namespace ValueOfObjects.Helpers.Configuration;
+namespace NativeSingleton.Helpers.Configuration;
 
 public class AppSettings
 {

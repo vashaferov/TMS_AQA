@@ -1,7 +1,7 @@
-using ValueOfObjects.Helpers.Configuration;
-using ValueOfObjects.Pages;
+using NativeSingleton.Helpers.Configuration;
+using NativeSingleton.Pages;
 
-namespace ValueOfObjects.Tests;
+namespace NativeSingleton.Tests;
 
 public class LoginTest : BaseTest
 {

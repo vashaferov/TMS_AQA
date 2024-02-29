@@ -1,6 +1,6 @@
-using ValueOfObjects.Models;
+using NativeSingleton.Models;
 
-namespace ValueOfObjects.Tests;
+namespace NativeSingleton.Tests;
 
 public class ProjectTest : BaseTest
 {

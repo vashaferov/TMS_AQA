@@ -1,10 +1,10 @@
 using System.Collections.ObjectModel;
+using NativeSingleton.Elements;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.WaitHelpers;
-using ValueOfObjects.Elements;
 
-namespace ValueOfObjects.Helpers;
+namespace NativeSingleton.Helpers;
 
 public class WaitsHelper(IWebDriver driver, TimeSpan timeout)
 {

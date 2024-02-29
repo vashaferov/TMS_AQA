@@ -1,8 +1,8 @@
+using NativeSingleton.Helpers;
+using NativeSingleton.Helpers.Configuration;
 using OpenQA.Selenium;
-using ValueOfObjects.Helpers;
-using ValueOfObjects.Helpers.Configuration;
 
-namespace ValueOfObjects.Elements;
+namespace NativeSingleton.Elements;
 
 public class RadioButton
 {

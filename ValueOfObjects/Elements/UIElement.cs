@@ -1,11 +1,11 @@
 using System.Collections.ObjectModel;
 using System.Drawing;
+using NativeSingleton.Helpers;
+using NativeSingleton.Helpers.Configuration;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
-using ValueOfObjects.Helpers;
-using ValueOfObjects.Helpers.Configuration;
 
-namespace ValueOfObjects.Elements;
+namespace NativeSingleton.Elements;
 
 public class UIElement : IWebElement
 {

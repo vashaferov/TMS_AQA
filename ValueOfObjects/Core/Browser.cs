@@ -1,7 +1,7 @@
-﻿using OpenQA.Selenium;
-using ValueOfObjects.Helpers.Configuration;
+﻿using NativeSingleton.Helpers.Configuration;
+using OpenQA.Selenium;
 
-namespace ValueOfObjects.Core
+namespace NativeSingleton.Core
 {
     public class Browser
     {

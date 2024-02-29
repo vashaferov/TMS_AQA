@@ -1,7 +1,7 @@
 using System.Reflection;
 using Microsoft.Extensions.Configuration;
 
-namespace ValueOfObjects.Helpers.Configuration
+namespace NativeSingleton.Helpers.Configuration
 {
     public static class Configurator
     {

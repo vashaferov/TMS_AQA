@@ -1,8 +1,8 @@
+using NativeSingleton.Models;
+using NativeSingleton.Pages.ProjectPages;
 using OpenQA.Selenium;
-using ValueOfObjects.Models;
-using ValueOfObjects.Pages.ProjectPages;
 
-namespace ValueOfObjects.Steps;
+namespace NativeSingleton.Steps;
 
 public class ProjectSteps(IWebDriver driver) : BaseStep(driver)
 {

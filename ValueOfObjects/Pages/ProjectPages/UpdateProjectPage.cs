@@ -1,6 +1,6 @@
 using OpenQA.Selenium;
 
-namespace ValueOfObjects.Pages.ProjectPages;
+namespace NativeSingleton.Pages.ProjectPages;
 
 public class UpdateProjectPage(IWebDriver? driver, bool openByURL = false) : ProjectBasePage(driver, openByURL)
 {
