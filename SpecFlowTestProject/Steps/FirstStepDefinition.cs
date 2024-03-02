@@ -1,14 +1,17 @@
 using NUnit.Framework;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
+using SpecFlowTestProject.Driver;
 
 namespace SpecFlowTestProject;
 
 [Binding]
 public class FirstStepDefinition
 {
-    [Given(@"открыт браузер")]
-    public void OpenBrowser()
+    private readonly Browser _browser;
+    public FirstStepDefinition(Browser browser)
     {
-        Console.WriteLine("Браузер открыт");
+        _browser = browser;
     }
 
     [When(@"страница логина открыта")]
@@ -16,6 +19,7 @@ public class FirstStepDefinition
     public void OpenLoginPage()
     {
         Console.WriteLine("Страница логина открыт");
+        _browser.Driver.Navigate().GoToUrl("https://vashaferov1.testrail.io/");
     }
 
     [Then(@"поле username отображается")]
