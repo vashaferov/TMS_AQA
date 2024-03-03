@@ -93,7 +93,6 @@ public class UIElement : IWebElement
                 ((IJavaScriptExecutor)_webDriver).ExecuteScript("arguments[0].click();", _webElement);
             }
         }
-        
     }
 
     public string GetAttribute(string attributeName)

@@ -8,6 +8,7 @@ public class ProjectBasePage : BasePage
 {
     private static readonly By NameInputBy = By.Id("name");
     private static readonly By ProjectTypeRBBy = By.Id("suite_name");
+    private static readonly By ShowAnnouncementCBBy = By.Id("show_announcement");
     
     public ProjectBasePage(IWebDriver driver) : base(driver)
     {
@@ -28,4 +29,5 @@ public class ProjectBasePage : BasePage
     }
 
     public RadioButton ProjectTypeRB => new RadioButton(Driver, ProjectTypeRBBy);
+    public Checkbox ShowAnnouncementCB => new Checkbox(Driver, ShowAnnouncementCBBy);
 }
