@@ -13,4 +13,9 @@ public class ProjectSteps : BaseStep
     {
         new AddProjectPage(Driver, true);
     }
+    
+    public void NavigateToAddPTestCasePage()
+    {
+        new AddTestCasePage(Driver, true);
+    }
 }

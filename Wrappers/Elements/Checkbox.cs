@@ -16,4 +16,6 @@ public class Checkbox
         if(string.IsNullOrEmpty(_uiElement.GetAttribute("::after")) == flag)
             _uiElement.Click();
     }
+
+    public bool Displayed => _uiElement.Displayed;
 }
