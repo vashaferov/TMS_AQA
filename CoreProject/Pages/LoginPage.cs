@@ -26,8 +26,18 @@ namespace CoreProject.Pages
 
         // Методы
         public IWebElement EmailInput => WaitsHelper.WaitForExists(EmailInputBy);
+
+        public void SetEmail(string email)
+        {
+            EmailInput.SendKeys(email);
+        }
+        
         public IWebElement ErrorLabel => WaitsHelper.WaitForExists(ErrorLabelBy);
         public IWebElement PswInput => WaitsHelper.WaitForExists(PswInputBy);
+        public void SetPassword(string password)
+        {
+            PswInput.SendKeys(password);
+        }
         public IWebElement RememberMeCheckbox => WaitsHelper.WaitForExists(RememberMeCheckboxBy);
         public IWebElement LoginInButton => WaitsHelper.WaitForExists(LoginInButtonBy);
     }
