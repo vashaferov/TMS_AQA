@@ -13,19 +13,19 @@ public class DropDownMenu
     public DropDownMenu(IWebDriver driver, By by)
     {
         _mainElement = new UIElement(driver, by);
+        _uiElements = new List<UIElement>();
         _texts = new List<string>();
-        
-        WaitsHelper _waitsHelper = new WaitsHelper(driver, TimeSpan.FromSeconds(Configurator.WaitsTimeout));
-        foreach (var webElement in _waitsHelper.WaitForAllPresenceElementsLocatedBy(by))
+
+        _mainElement.Click();
+        foreach (var webElement in _mainElement.FindUIElements(By.XPath("descendant::li")))
         {
-            UIElement uiElement = new UIElement(driver, webElement);
-            // _uiElements.Add(uiElement.FindUIElement(By.XPath("//*[@id=\"template_id_chzn_o_0\"]")));
-            _texts.Add(uiElement.FindUIElement(By.XPath("descendant::li")).Text.Trim());
-            Console.WriteLine(uiElement.FindUIElement(By.XPath("descendant::li")).Text.Trim());
+            _uiElements.Add(webElement);
+            _texts.Add(webElement.Text.Trim());
         }
+        _mainElement.Click();
     }
 
-    public void SelectValue(string text)
+    public void SelectText(string text)
     {
         _mainElement.Click();
         try
@@ -34,7 +34,22 @@ public class DropDownMenu
         }
         catch (Exception e)
         {
-            throw new AssertionException("Привышен индекс");
+            throw new AssertionException("По искомому тексту не найден элемент");
         }
     }
+    
+    public void SelectIndex(int index)
+    {
+        _mainElement.Click();
+        try
+        {
+            _uiElements[index].Click();
+        }
+        catch (Exception e)
+        {
+            throw new AssertionException("По искомому индексу не найден элемент");
+        }
+    }
+    
+    public bool Displayed => _mainElement.Displayed;
 }

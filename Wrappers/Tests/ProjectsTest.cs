@@ -19,16 +19,4 @@ public class ProjectsTest : BaseTest
         addProjectPage.ProjectTypeRB.SelectByIndex(1);
         addProjectPage.ProjectTypeRB.SelectByValue("3");
     }
-
-    [Test]
-    public void TestTest()
-    {
-        NavigationSteps.NavigateToLoginPage();
-        NavigationSteps.SuccessfulLogin(Configurator.AppSettings.Username, Configurator.AppSettings.Password);
-        Driver.Navigate().GoToUrl("https://vashaferov1.testrail.io/index.php?/cases/add/1");
-        
-        AddTestCasePage addTestCasePage = new AddTestCasePage(Driver);
-        addTestCasePage.TemplateDropDown.SelectValue("Test Case (Steps)");
-        Thread.Sleep(5000);
-    }
 }
