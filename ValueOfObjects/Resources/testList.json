@@ -1,0 +1,14 @@
+[
+  {
+    "Name": "Test Name1",
+    "FieldValue": 10,
+    "IsEnabled": true,
+    "AnyObject": "Test Object1"
+  },
+  {
+    "Name": "Test Name2",
+    "FieldValue": 5,
+    "IsEnabled": false,
+    "AnyObject": "Test Object2"
+  }
+]
