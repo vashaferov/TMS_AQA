@@ -1,3 +1,4 @@
+using ChainOfInvocatios.Pages;
 using ChainOfInvocatios.Pages.ProjectPages;
 using OpenQA.Selenium;
 
@@ -7,6 +8,8 @@ public class ProjectSteps : BaseStep
 {
     public ProjectSteps(IWebDriver driver) : base(driver)
     {
+        AddProjectPage addProjectPage = new AddProjectPage(Driver);
+        DashboardPage dashboardPage = new DashboardPage(Driver);
     }
 
     public void NavigateToAddProjectPage()
