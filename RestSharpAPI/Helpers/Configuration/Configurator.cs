@@ -1,7 +1,7 @@
 using System.Reflection;
 using Microsoft.Extensions.Configuration;
 
-namespace NativeSingleton.Helpers.Configuration
+namespace RestSharpAPI.Helpers.Configuration
 {
     public static class Configurator
     {

@@ -37,20 +37,17 @@
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </Content>
       <None Remove="Resources\testObject1.json" />
-      <Content Include="Resources\testObject1.json">
-        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      </Content>
       <None Remove="Resources\testList.json" />
-      <Content Include="Resources\testList.json">
-        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      </Content>
       <Content Update="Resources\testObject2.json">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </Content>
       <None Remove="Resources\testObject2.json" />
-      <Content Include="Resources\testObject2.json">
-        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      </Content>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Models\" />
+      <Folder Include="Resources\" />
+      <Folder Include="Tests\" />
     </ItemGroup>
 
 </Project>

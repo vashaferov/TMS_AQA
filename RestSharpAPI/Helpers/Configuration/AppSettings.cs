@@ -1,4 +1,4 @@
-namespace NativeSingleton.Helpers.Configuration;
+namespace RestSharpAPI.Helpers.Configuration;
 
 public class AppSettings
 {
