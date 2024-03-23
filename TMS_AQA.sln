@@ -5,6 +5,8 @@ VisualStudioVersion = 17.7.34221.43
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestSharpAPI", "RestSharpAPI\RestSharpAPI.csproj", "{AEFF69BE-4E46-4382-84B1-09304F36EE26}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestRailComplexApi", "TestRailComplexApi\TestRailComplexApi.csproj", "{7C49B2BD-54DF-48A9-BCFF-37C1392624D7}"
+EndProject
 Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -33,5 +35,17 @@ Global
 		{AEFF69BE-4E46-4382-84B1-09304F36EE26}.Release|x64.Build.0 = Release|Any CPU
 		{AEFF69BE-4E46-4382-84B1-09304F36EE26}.Release|x86.ActiveCfg = Release|Any CPU
 		{AEFF69BE-4E46-4382-84B1-09304F36EE26}.Release|x86.Build.0 = Release|Any CPU
+		{7C49B2BD-54DF-48A9-BCFF-37C1392624D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C49B2BD-54DF-48A9-BCFF-37C1392624D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C49B2BD-54DF-48A9-BCFF-37C1392624D7}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{7C49B2BD-54DF-48A9-BCFF-37C1392624D7}.Debug|x64.Build.0 = Debug|Any CPU
+		{7C49B2BD-54DF-48A9-BCFF-37C1392624D7}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{7C49B2BD-54DF-48A9-BCFF-37C1392624D7}.Debug|x86.Build.0 = Debug|Any CPU
+		{7C49B2BD-54DF-48A9-BCFF-37C1392624D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C49B2BD-54DF-48A9-BCFF-37C1392624D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C49B2BD-54DF-48A9-BCFF-37C1392624D7}.Release|x64.ActiveCfg = Release|Any CPU
+		{7C49B2BD-54DF-48A9-BCFF-37C1392624D7}.Release|x64.Build.0 = Release|Any CPU
+		{7C49B2BD-54DF-48A9-BCFF-37C1392624D7}.Release|x86.ActiveCfg = Release|Any CPU
+		{7C49B2BD-54DF-48A9-BCFF-37C1392624D7}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

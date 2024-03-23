@@ -10,6 +10,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="Bogus" Version="35.5.0" />
         <PackageReference Include="DotNetSeleniumExtras.WaitHelpers" Version="3.11.0" />
         <PackageReference Include="ExtentReports" Version="5.0.2" />
         <PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
@@ -31,26 +32,27 @@
 
     <ItemGroup>
       <Content Update="appsettings.json">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </Content>
       <None Remove="appsettings.json" />
       <Content Include="appsettings.json">
-        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </Content>
-      <None Remove="Resources\testObject1.json" />
-      <None Remove="Resources\testList.json" />
-      <Content Update="Resources\testObject2.json">
-        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Content Update="NLog.config">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </Content>
-      <None Remove="Resources\testObject2.json" />
       <None Remove="NLog.config" />
       <Content Include="NLog.config">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </Content>
-      <None Remove="Resources\schema.json" />
-      <Content Include="Resources\schema.json">
-        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      </Content>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Clients\" />
+      <Folder Include="Fakers\" />
+      <Folder Include="Models\" />
+      <Folder Include="Services\" />
+      <Folder Include="Tests\" />
     </ItemGroup>
 
 </Project>
