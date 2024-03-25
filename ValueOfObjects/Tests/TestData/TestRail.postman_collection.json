@@ -1,0 +1,708 @@
+{
+	"info": {
+		"_postman_id": "2c301882-3a82-44df-8e64-2aea75ff7b57",
+		"name": "TestRail",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33562275"
+	},
+	"item": [
+		{
+			"name": "Projects",
+			"item": [
+				{
+					"name": "Add Project",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var expectedName = pm.environment.get(\"ProjectName\");\r",
+									"var jsonDataResponse = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"ID not null\", function () {\r",
+									"    pm.expect(jsonDataResponse.id).to.not.be.null;\r",
+									"}); \r",
+									"\r",
+									"pm.test(\"Name project eql: \" + expectedName , function () {\r",
+									"    pm.expect(jsonDataResponse.name).to.eql(expectedName);\r",
+									"}); \r",
+									"\r",
+									"pm.environment.set(\"ProjectId\", pm.response.json().id);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"{{ProjectName}}\",\r\n    \"announcement\": \"Hello!\",\r\n    \"show_announcement\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseURL}}/index.php?/api/v2/add_project",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"index.php"
+							],
+							"query": [
+								{
+									"key": "/api/v2/add_project",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Project",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var expectedId = pm.environment.get(\"ProjectId\");\r",
+									"var expectedName = pm.environment.get(\"ProjectName\");\r",
+									"var jsonDataResponse = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"ID project eql: \" + expectedId , function () {\r",
+									"    pm.expect(jsonDataResponse.id).to.eql(parseInt(expectedId));\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Name project eql: \" + expectedName , function () {\r",
+									"    pm.expect(jsonDataResponse.name).to.eql(expectedName);\r",
+									"}); "
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseURL}}/index.php?/api/v2/get_project/{{ProjectId}}",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"index.php"
+							],
+							"query": [
+								{
+									"key": "/api/v2/get_project/{{ProjectId}}",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Project",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonDataResponse = pm.response.json();\r",
+									"var jsonDataRequest = JSON.parse(pm.request.body.raw);\r",
+									"\r",
+									"pm.test('Status code is 200', function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"})\r",
+									"\r",
+									"pm.test('Announcement project eql new', function () {\r",
+									"    pm.expect(jsonDataResponse.announcement).to.eql(jsonDataRequest.announcement);\r",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"announcement\": \"Project update!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseURL}}/index.php?/api/v2/update_project/{{ProjectId}}",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"index.php"
+							],
+							"query": [
+								{
+									"key": "/api/v2/update_project/{{ProjectId}}",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Project",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseURL}}/index.php?/api/v2/delete_project/{{ProjectId}}",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"index.php"
+							],
+							"query": [
+								{
+									"key": "/api/v2/delete_project/{{ProjectId}}",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Projects",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var expectedId = pm.environment.get(\"ProjectId\");\r",
+									"var expectedName = pm.environment.get(\"ProjectName\");\r",
+									"var jsonDataResponse = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"ID \" + expectedId + \" not found\" , function () {\r",
+									"    pm.expect(jsonDataResponse.id).to.not.eql(parseInt(expectedId));\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Name \" + expectedName + \" not found\" , function () {\r",
+									"    pm.expect(jsonDataResponse.name).to.not.eql(expectedName);\r",
+									"}); "
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseURL}}/index.php?/api/v2/get_projects",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"index.php"
+							],
+							"query": [
+								{
+									"key": "/api/v2/get_projects",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							"const now = new Date();\r",
+							"const year = now.getFullYear();\r",
+							"const month = now.getMonth();\r",
+							"const day = now.getDate();\r",
+							"const hour = now.getHours();\r",
+							"const minutes = now.getMinutes();\r",
+							"const date = `Test_${day}.${month + 1}.${year} ${hour}:${minutes}`;\r",
+							"\r",
+							"pm.environment.set(\"ProjectName\", date);"
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Milestones",
+			"item": [
+				{
+					"name": "Add Milestone",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonDataResponse = pm.response.json();\r",
+									"var jsonDataRequest = JSON.parse(pm.request.body.raw);\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Name milestones eql: \" + jsonDataRequest.name , function () {\r",
+									"    pm.expect(jsonDataResponse.name).to.eql(jsonDataRequest.name);\r",
+									"}); \r",
+									"\r",
+									"pm.environment.set(\"MilestoneId\", pm.response.json().id);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"{{MilestoneName}}\",\r\n    \"due_on\": 1394596385\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseURL}}/index.php?/api/v2/add_milestone/{{ProjectId}}",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"index.php"
+							],
+							"query": [
+								{
+									"key": "/api/v2/add_milestone/{{ProjectId}}",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Milestone",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var expectedId = pm.environment.get(\"MilestoneId\");\r",
+									"var expectedName = pm.environment.get(\"MilestoneName\");\r",
+									"var jsonDataResponse = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"ID project eql: \" + expectedId , function () {\r",
+									"    pm.expect(jsonDataResponse.id).to.eql(parseInt(expectedId));\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Name project eql: \" + expectedName , function () {\r",
+									"    pm.expect(jsonDataResponse.name).to.eql(expectedName);\r",
+									"}); "
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseURL}}/index.php?/api/v2/get_milestone/{{MilestoneId}}",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"index.php"
+							],
+							"query": [
+								{
+									"key": "/api/v2/get_milestone/{{MilestoneId}}",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Milestone",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonDataResponse = pm.response.json();\r",
+									"var jsonDataRequest = JSON.parse(pm.request.body.raw);\r",
+									"\r",
+									"pm.test('Status code is 200', function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"})\r",
+									"\r",
+									"pm.test('\"Is_completed\" eql new', function () {\r",
+									"    pm.expect(jsonDataResponse.is_completed).to.eql(jsonDataRequest.is_completed);\r",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"is_completed\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseURL}}/index.php?/api/v2/update_milestone/{{MilestoneId}}",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"index.php"
+							],
+							"query": [
+								{
+									"key": "/api/v2/update_milestone/{{MilestoneId}}",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Milestone",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BaseURL}}/index.php?/api/v2/delete_milestone/{{MilestoneId}}",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"index.php"
+							],
+							"query": [
+								{
+									"key": "/api/v2/delete_milestone/{{MilestoneId}}",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Milestones",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var expectedId = pm.environment.get(\"MilestoneId\");\r",
+									"var expectedName = pm.environment.get(\"MilestoneName\");\r",
+									"var jsonDataResponse = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"ID \" + expectedId + \" not found\" , function () {\r",
+									"    pm.expect(jsonDataResponse.id).to.not.eql(parseInt(expectedId));\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Name \" + expectedName + \" not found\" , function () {\r",
+									"    pm.expect(jsonDataResponse.name).to.not.eql(expectedName);\r",
+									"}); "
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseURL}}/index.php?/api/v2/get_milestones/{{ProjectId}}",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"index.php"
+							],
+							"query": [
+								{
+									"key": "/api/v2/get_milestones/{{ProjectId}}",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							"const baseUrl = `${pm.environment.get(\"BaseURL\")}/index.php?/api/v2/add_project`;\r",
+							"const email = `${pm.environment.get(\"Email\")}`;\r",
+							"const psw = `${pm.environment.get(\"Password\")}`;\r",
+							"\r",
+							"const postRequest = {\r",
+							"  url: `${baseUrl}`,\r",
+							"  auth: {\r",
+							"    type: \"basic\",\r",
+							"    basic: {\r",
+							"      username: `${email}`,\r",
+							"      password: `${psw}`\r",
+							"    }\r",
+							"  },\r",
+							"  method: 'POST',\r",
+							"  header: {\r",
+							"    'Content-Type': 'application/json',\r",
+							"    'X-Foo': 'bar'\r",
+							"  },\r",
+							"  body: {\r",
+							"    mode: 'raw',\r",
+							"    raw: JSON.stringify({name: 'Test'})\r",
+							"  }\r",
+							"};\r",
+							"pm.sendRequest(postRequest, (error, response) => {\r",
+							"  pm.expect(response).to.have.property('code', 200);\r",
+							"  console.log(error ? error : response.json());\r",
+							"  pm.environment.set(\"ProjectId\", response.json().id);\r",
+							"});\r",
+							"\r",
+							"const now = new Date();\r",
+							"const year = now.getFullYear();\r",
+							"const month = now.getMonth();\r",
+							"const day = now.getDate();\r",
+							"const hour = now.getHours();\r",
+							"const minutes = now.getMinutes();\r",
+							"const date = `Milestone_${day}.${month + 1}.${year} ${hour}:${minutes}`;\r",
+							"\r",
+							"pm.environment.set(\"MilestoneName\", date);"
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Get User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code: 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BaseURL}}/api/v2/get_user/1",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"api",
+						"v2",
+						"get_user",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "{{Password}}",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "{{Email}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
