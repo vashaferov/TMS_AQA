@@ -1,5 +1,7 @@
 using System.Reflection;
 using Microsoft.Extensions.Configuration;
+using TestRailComplexApi.Models;
+using TestRailComplexApi.Models.Enums;
 
 namespace RestSharpAPI.Helpers.Configuration
 {
@@ -37,13 +39,42 @@ namespace RestSharpAPI.Helpers.Configuration
                 var appSettings = new AppSettings();
                 var child = Configuration.GetSection("AppSettings");
 
-                appSettings.URL = child["URL"];
-                appSettings.Username = child["Username"];
-                appSettings.Password = child["Password"];
+                appSettings.URL = child["API_URL"];
 
                 return appSettings;
             }
         }
+
+        public static List<User?> Users
+        {
+            get
+            {
+                List<User?> users = new List<User?>();
+                var child = Configuration.GetSection("Users");
+                foreach (var section in child.GetChildren())
+                {
+                    var user = new User
+                    {
+                        Password = section["Password"],
+                        Username = section["Username"]
+                    };
+                    user.UserType = section["UserType"].ToLower() switch
+                    {
+                        "admin" => UserType.Admin,
+                        "user" => UserType.User,
+                        _ => user.UserType
+                    };
+
+                    users.Add(user);
+                }
+
+                return users;
+            }
+        }
+
+        public static User? Admin => Users.Find(x => x?.UserType == UserType.Admin);
+
+        public static User? UserByUsername(string username) => Users.Find(x => x?.Username == username);
 
         public static string? BrowserType => Configuration[nameof(BrowserType)];
 
